@@ -36,19 +36,51 @@ def custom_die(number_1, number_2):
 
 # best practice is to define the main function that kicks off the program
 def main():
-	# Ask the user how many dice to roll
-	total_rolls = int(input("How many dice rolls? "))
-	# cast data object into another data object
-	#total_rolls=int(total_rolls)
+	# modify our main function so that it will continue asking us to
+	# roll dice, until we exit the program
+	# Wrap the core logic of the function that takes a range and print
+	# from a random number in that range
+	
+	# let user know that they can put in 'q' to stop program
+	print("Welcome to the dice roller. Enter 'q' to exit.")
 
-	# Ask the user how big the dice is
-	die_size = int(input("How many sides does the die have? "))
+	# initialize "entry" variable by giving it an empty string
+	entry = ""
 
-	# need a for loop to know how many times to roll the die
-	# start range at 0, due to zero-index counting system
-	for x in range(0,total_rolls):
-		# Roll that many dice, using the custom_die function from above
-		custom_die(1, die_size)
+	# make a while loop that checks to see wether or not the user has entered 'q'
+	while entry != "q":
+
+		# Ask the user how many dice to roll
+		# Assign "entry" variable to the input value
+		entry = input("How many dice rolls? ")
+		# if input is not "q".....
+		if entry != "q":
+			# assign "total_rolls" variable to variable "entry" input 
+			# make the variable an integer upon assignment
+			total_rolls = int(entry) 
+		# Make sure that the program quits when "q" is entered
+		if entry == "q":
+			print("Thanks for playing. Have a nice day.")
+			exit()
+
+		# Find out how many sides the die has
+		# Assign "entry" variable to the input value
+		entry = input("How many sides does the die have? ")
+		# if input is not "q".....
+		if entry != "q":
+			# assign "die_size" variable to variable "entry" input
+			# make the variable an integer upon assignment
+			die_size = int(entry)
+		# Make sure that the program quits when "q" is entered
+		if entry == "q":
+			print("Thanks for playing. Have a nice day.")
+			exit() 
+
+		# need a for loop to know how many times to roll the die
+		# start range at 0, due to zero-index counting system
+		for x in range(0,total_rolls):
+			# Roll that many dice, using the custom_die function from above
+			custom_die(1, die_size)
 
 # call function
 main()
