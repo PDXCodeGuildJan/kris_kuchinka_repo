@@ -1,3 +1,7 @@
+# 2015.01.07-08----->
+# Created By: Kris Kuchinka---->
+# Part of PDX Code Guild Lesson----->
+
 # Create a die function that returns a random number, 
 # as if the user rolled a die.
 
@@ -37,7 +41,7 @@ def custom_die(number_1, number_2):
 # best practice is to define the main function that kicks off the program
 def main():
 	# modify our main function so that it will continue asking us to
-	# roll dice, until we exit the program
+	# roll dice, until we exit the program by typing 'q'
 	# Wrap the core logic of the function that takes a range and print
 	# from a random number in that range
 	
