@@ -1,5 +1,7 @@
+# Dark Moor Pond Maze
+# =====================
 # Date Started: 2015.01.08
-# Date Finished: 
+# Date Finished: 2015.01.11
 # Created By: Kris Kuchinka
 # Assignment at PDX Code Guild
 #----------------------------------->
@@ -26,8 +28,8 @@
 # Each function has if elifs for movement options
 # Each function has a string explanation of the room they are in
 # Each function choice should refer and instantiate a different function
-
 #---------------------------------->
+
 def main():
 	print (" ")
 	print("You never, ever thought it would happen to you, but it did-- you have been abducted and are now waking up in an unknown place. Welcome to Dark Moor Pond.")
@@ -40,7 +42,6 @@ def main():
 	print (" ")
 	# User starts out in the Lodge
 	lodge()
-
 
 def lodge():
 	print (" ")
@@ -96,8 +97,6 @@ def lodge():
 			print (" ")
 			print ("You didn't choose one of the 3 options. You didn't even choose to quit. Now you have to start over at the Lodge.")
 			print (" ")
-
-
 
 def kitchen():
 	print (" ")
@@ -192,9 +191,6 @@ def library():
 			print (" ")
 			print ("It looks like you didn't choose one of the options that you were given. There were 3 or you could give up. Go ahead and make one of the proper choices.")
 		
-
-
-
 def naughty_room():
 	print (" ")
 	print ("Welcome to the Naughty Room.")
@@ -255,7 +251,6 @@ def naughty_room():
 			print (" ")
 			print ("Please choose one of the choices you've been given. There are 4 options, but you seem to have chosen an option that does not match the choices you have to make.")
 			print(" ")
-
 
 def viewing_deck():
 	print (" ")
