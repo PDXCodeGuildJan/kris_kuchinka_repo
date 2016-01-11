@@ -261,13 +261,97 @@ def naughty_room():
 
 
 def viewing_deck():
+	print (" ")
 	print ("Welcome to the Viewing Deck.")
+	print (" ")
+	print ("You are in the middle of all the buildings. You may be able to tell that from looking around, but it may also be too foggy for you to see past your nose.")
+	print (" ")
+	print ("You have 2 options to choose from.")
+	print ("Option 1 is to head West into the hallway door.")
+	print ("Option 2 is to head East, across the deck and into the door you find there.")
+	print (" ")
+
+	# set flag to false for correct_answer variable
+	correct_answer = False
+
+	while correct_answer == False:
+		#list the choices that the user has
+		choice = input("Which of the 2 options do you choose from?    ")
+		# Option 1 is the Lodge
+		if choice == "1":	
+			correct_answer = True
+			print (" ")
+			print ("You may be heading back to a place that has become all too familiar. Keep trying.")
+			print (" ")
+			lodge()
+		# Option 2 is the Naughty Room
+		elif choice == "2":
+			correct_answer = True
+			print (" ")
+			print ("Did you do something naughty?")
+			print (" ")
+			naughty_room()
+		elif choice == "q":
+			correct_answer = True
+			print (" ")
+			print ("I have to be honest. I didn't think you'd give up that easily. I guess you just don't get to have that brand new Audi.")
+			print (" ")
+			exit()
+		else:
+			print (" ")
+			print ("You only have two options here (or you can quit). You didn't supply the proper response for your choice. Try again-- you got this!")
+			print (" ")
+			viewing_deck()
+
 def green_house():
+	print (" ")
 	print ("Welcome to the Green House.")
+	print (" ")
+	print ("A hundred years ago, this was a beautiful place where nature was abundant. Now, the windows are broken, the roof is decrepit. Be careful to not fall through the floor.")
+	print (" ")
+	print ("You have 2 options to choose from.")
+	print ("Option 1 is go to the door in the South-West corner.")
+	print ("Option 2 is to choose the door in the South-East corner.")
+	print (" ")
+
+	# set flag to false for correct_answer variable
+	correct_answer = False
+
+	while correct_answer == False:
+		#list the choices that the user has
+		choice = input("Which of the 2 options do you choose from?    ")
+		# Option 1 is the Naughty Room
+		if choice == "1":
+			correct_answer = True
+			print (" ")
+			print ("Somebody must have been misbehaving...")
+			print (" ")
+			naughty_room()
+		# Option 2 is the parking lot
+		elif choice == "2":
+			correct_answer = True
+			print (" ")
+			print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			print ("I'm getting a good feeling....")
+			print (" ")
+			parking_lot()	
+		elif choice == "q":
+			correct_answer = True
+			print (" ")
+			print ("You were only one different decision away from success. It's too bad you gave up.")
+			print (" ")
+			exit()
+		else:
+			print (" ")
+			print ("It seems that you did not choose between the two possible options supplied to you. Please try again.")
+			print (" ")
+			green_house()
+
 def parking_lot():
+	print ("!!!!!! SUCCESS !!!!!!")
 	print ("You made it to the parking lot!")
-
-
-
+	print ("Hop in your new car and get the hell out of Dark Moor Pond. You're safe now. Next time, be careful where you wake up...")
+	print (" ")
+	print (" ")
 
 main()
