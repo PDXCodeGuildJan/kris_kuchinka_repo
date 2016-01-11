@@ -334,13 +334,15 @@ def green_house():
 			print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 			print ("I'm getting a good feeling....")
 			print (" ")
-			parking_lot()	
+			parking_lot()
+		# User chooses to quit	
 		elif choice == "q":
 			correct_answer = True
 			print (" ")
 			print ("You were only one different decision away from success. It's too bad you gave up.")
 			print (" ")
 			exit()
+		# Improper option is input
 		else:
 			print (" ")
 			print ("It seems that you did not choose between the two possible options supplied to you. Please try again.")
