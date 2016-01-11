@@ -28,29 +28,32 @@
 
 #---------------------------------->
 def main():
-	print(" ")
+	print (" ")
 	print("You never, ever thought it would happen to you, but it did-- you have been abducted and are now waking up in an unknown place. Welcome to Dark Moor Pond.")
-	print(" ") 
-	print("There is a way out, but you have to find it on your own. I wanted to play a game. Now you are the player. Your goal is to make it to the parking lot. IF you decide to simply give up and suicide, hit 'q' and the game will be over.")
-	print(" ")
-	print("But that's not like you, is it? You want to find your way to the parking lot and you know you can.")
-	print(" ")
+	print (" ") 
+	print ("There is a way out, but you have to find it on your own. I wanted to play a game. Now you are the player. Your goal is to make it to the parking lot. IF you decide to simply give up and suicide, hit 'q' and the game will be over.")
+	print (" ")
+	print ("But that's not like you, is it? You want to find your way to the parking lot and you know you can.")
+	print (" ")
 	print ("It's as simple as that. Then there is an Audi waiting for you, the key is in a magnetic case under the passenger side tire well. You can make it out alive. Until then, enjoy...")
-	print(" ")
+	print (" ")
 
 	lodge()
 
 
 def lodge():
-	print("You are now standing in the lodge. Maybe you have stayed with us before. I'm sure you wouldn't remember, so don't bother...")
 	print (" ")
-	print("The point now is to find the parking lot.")
+	print ("Welcome to the lodge.") 
 	print (" ")
-	print("In the lodge, you have 3 options to choose from.")
-	print("Option 1 is to head to the door in the forward, left diagnol corner of the Lodge.")
-	print("Option 2 is to head to the door in the forward, right diagnol corner of the Lodge.")
-	print("Option 3 is to head straight forward to the door on the opposite end of the Lodge.")
-	print("Or you can simply type 'q' and give up, but that wouldn't be any fun, now would it?")
+	print ("Maybe you have stayed with us before. I'm sure you wouldn't remember, so don't bother...")
+	print (" ")
+	print ("The point now is to find the parking lot.")
+	print (" ")
+	print ("In the lodge, you have 3 options to choose from.")
+	print ("Option 1 is to head to the door in the forward, left diagnol corner of the Lodge.")
+	print ("Option 2 is to head to the door in the forward, right diagnol corner of the Lodge.")
+	print ("Option 3 is to head straight forward to the door on the opposite end of the Lodge.")
+	print ("Or you can simply type 'q' and give up, but that wouldn't be any fun, now would it?")
 	print (" ")
 	# set flag to false for correct_answer variable
 	correct_answer = False
@@ -61,29 +64,36 @@ def lodge():
 		# Choice 1 leads to the Kitchen
 		if choice == "1":
 			correct_answer = True
+			print (" ")
 			kitchen()
 		# Choice 2 leads to the Library
 		elif choice == "2":
 			correct_answer = True
+			print (" ")
 			library()
 		# Choice 3 leads to the Viewing Deck
 		elif choice == "3":
 			correct_answer = True
+			print (" ")
 			viewing_deck()
 		# The ultimate out--> they quit:-(
 		elif choice == "q":
 			correct_answer = True
+			print (" ")
 			exit()
 		# repeat the options
 		else:
 			correct_answer = False
-			print("You didn't choose one of the 3 options. You didn't even choose to quit. Now you have to start over at the Lodge.")
+			print ("You didn't choose one of the 3 options. You didn't even choose to quit. Now you have to start over at the Lodge.")
+			lodge()
 
 
 
 def kitchen():
 	print (" ")
-	print("Welcome to the Kitchen. I'd like to say that many have shared meals in here, but others have been part of the share, if you know what I'm saying.")
+	print ("Welcome to the Kitchen.")
+	print (" ")
+	print ("I'd like to say that many have shared meals in here, but others have been part of the share, if you know what I'm saying.")
 	print (" ")
 	print ("In the kitchen you have two options to choose from.")
 	print ("Option 1 is to walk through the door to the rear diagnol corner.")
@@ -98,6 +108,8 @@ def kitchen():
 		# Choice 1 leads to the Lodge
 		if choice == "1":
 			correct_answer = True
+			print (" ")
+			print ("It looks like you are headed to a familiar room.")
 			lodge()
 		# Choice 2 leads to the Library
 		elif choice == "2":
@@ -116,23 +128,25 @@ def kitchen():
 			print (" ")
 			kitchen()
 
-
-
-
-
 def library():
-	print("Welcome to the Library.")
 	print (" ")
-	print("This room is full of so many books, all with so much knowledge to give, but, try as you might, you will not find a map of Dark Moor Pond in here. You have to choose between the following options."
+	print ("Welcome to the Library.")
 	print (" ")
-	print "There are 3 options to choose from.")
+	print ("This room is full of so many books, all with so much knowledge to give, but, try as you might, you will not find a map of Dark Moor Pond in here.")
+	print (" ")
+	print ("You have 3 options to choose from.")
+	print ("Option 1 lets you move diagnolly to the left rear.")
+	print ("Option 2 makes you move to the left side of the room and through that door.")
+	print ("Option 3 means you move diagnolly to the left corner and walk through that doorway.")
+	print (" ")
+
 
 	# set flag to false for correct_answer variable
 	correct_answer = False
 
-	while correct_answer = False:
+	while correct_answer == False:
 		#list the choices that the user has
-		choice = input("Which of the 3 options do you choose from?")
+		choice = input("Which of the 3 options do you choose from?    ")
 		# Choice 1 leads to the Lodge
 		if choice == "1":
 			correct_answer = True
@@ -166,13 +180,40 @@ def library():
 
 
 def naughty_room():
-	print("Welcome to the Naughty Room.")
+	print (" ")
+	print ("Welcome to the Naughty Room.")
+	print (" ")
+	print ("Kids do bad things and sometimes there's no way to stop them. That's why the Naughty Room was created in the early 1800's. The room is soundproof, so don't bother screaming. At least you aren't locked in. You don't have to stay here, if you choose not to do so.")
+	print (" ")
+	print ("You have 4 options to choose from.")
+	print ("Option 1 is the door in the rear right diagnol corner of the room.")
+	print ("Option 2 is the door directly in the rear of the room.")
+	print ("Option 3 leads to door in the forward left diagnol corner.")
+	print ("Option 4 is the door in the forward right diagnol corner.")
+	print (" ")
+
+	# set flag to false for correct_answer variable
+	correct_answer = False
+
+	while correct_answer == False:
+		#list the choices that the user has
+		choice = input("Which of the 4 options do you choose from?    ")
+		# Option 1 is the Library
+		# Option 2 is the Kitchen
+		# Option 3 is the Green House
+		# Option 4 is the Parking Lot
+		# Or the user can quit the game
+		# If one of the 5 options is not chosen...
+
+
+
+
 def viewing_deck():
-	print("Welcome to the Viewing Deck.")
+	print ("Welcome to the Viewing Deck.")
 def green_house():
-	print("Welcome to the Green House.")
+	print ("Welcome to the Green House.")
 def parking_lot():
-	print("You made it to the parking lot!")
+	print ("You made it to the parking lot!")
 
 
 
