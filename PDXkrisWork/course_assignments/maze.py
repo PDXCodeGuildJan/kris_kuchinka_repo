@@ -96,7 +96,6 @@ def lodge():
 			print (" ")
 			print ("You didn't choose one of the 3 options. You didn't even choose to quit. Now you have to start over at the Lodge.")
 			print (" ")
-			lodge()
 
 
 
@@ -142,7 +141,6 @@ def kitchen():
 			print (" ")
 			print ("I'm sorry you had only 2 options to choose from. Or you could have chosen to quit the game, but your answer doesn't fit with any of the options you were given. Try again.")
 			print (" ")
-			kitchen()
 
 def library():
 	print (" ")
@@ -193,7 +191,7 @@ def library():
 		else:
 			print (" ")
 			print ("It looks like you didn't choose one of the options that you were given. There were 3 or you could give up. Go ahead and make one of the proper choices.")
-			library()
+		
 
 
 
@@ -257,7 +255,6 @@ def naughty_room():
 			print (" ")
 			print ("Please choose one of the choices you've been given. There are 4 options, but you seem to have chosen an option that does not match the choices you have to make.")
 			print(" ")
-			naughty_room()
 
 
 def viewing_deck():
@@ -301,7 +298,6 @@ def viewing_deck():
 			print (" ")
 			print ("You only have two options here (or you can quit). You didn't supply the proper response for your choice. Try again-- you got this!")
 			print (" ")
-			viewing_deck()
 
 def green_house():
 	print (" ")
@@ -347,7 +343,6 @@ def green_house():
 			print (" ")
 			print ("It seems that you did not choose between the two possible options supplied to you. Please try again.")
 			print (" ")
-			green_house()
 
 def parking_lot():
 	print ("!!!!!! SUCCESS !!!!!!")
