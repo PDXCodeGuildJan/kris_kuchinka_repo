@@ -4,12 +4,15 @@
 # Practice file for slicing strings, looping through a sequence, etc
 
 def main():
+
+	user_input = input("Please tell me what's on your mind.   ")
+
 	fun_with_strings()
 	# call functions from below and feed it string parameter
-	hard_code_middle_3("practice_string")
-	dynamic_middle_3("bear")
-	super_dynamic_middle_3("The frog on the log.")
-	looping_thru_sequence("This is a sequence.")
+	hard_code_middle_3(user_input)
+	dynamic_middle_3(user_input)
+	super_dynamic_middle_3(user_input)
+	looping_thru_sequence(user_input)
 
 
 #--------------------- various string manipulations function ----------------
