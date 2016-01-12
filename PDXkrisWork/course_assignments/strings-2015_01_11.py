@@ -7,12 +7,17 @@ def main():
 
 	user_input = input("Please tell me what's on your mind.   ")
 
+	# make a list of random stuff and call loop function with looping function
+	animals = ["dog", "cat", "turtle", "frog", "fish", "snake", "duck", "goat", "chicken"]
+
 	fun_with_strings()
 	# call functions from below and feed it string parameter
 	hard_code_middle_3(user_input)
 	dynamic_middle_3(user_input)
 	super_dynamic_middle_3(user_input)
 	looping_thru_sequence(user_input)
+	# loop through "animals" list from above
+	looping_thru_sequence(animals)
 
 
 #--------------------- various string manipulations function ----------------
