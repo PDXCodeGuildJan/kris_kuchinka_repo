@@ -6,7 +6,7 @@
 
 from random import randint
 
-words = ["pterodactyl", "antidisestablishmentarianism", "existentialism", "universalism", "Machiavellianism", "Kierkegaard", "banana" ]
+words = ["pterodactyl", "antidisestablishmentarianism", "existentialism", "universalism", "machiavellianism", "kierkegaard", "banana" ]
 numWrong = 0
 listedWord = [None]
 
@@ -15,6 +15,7 @@ listedWord = [None]
 # the 6th wrong guess triggering Game Over.
 def hangperson():
    hang_person_picture()
+   print(" ")
    global listedWord
 
    # Greet the user
@@ -40,9 +41,11 @@ def hangperson():
    #-- First we need to find the length of the listedWord
    currentState = list("_" * len(listedWord))
 
+   #-- initialize the list of missed guesses
+   incorrect = []
 
    # Print the initial state of the game
-   printHangperson(currentState)
+   printHangperson(currentState, incorrect)
 
    # Start the game! Loop until the user either wins or loses
 
@@ -50,13 +53,18 @@ def hangperson():
       guess = userGuess()
 
       # see if the guess is in the word, update accordingly
-      currentState = updateState(guess, currentState)
+      bundledLists = updateState(guess, currentState, incorrect)
 
-      printHangperson(currentState)
+      currentState = bundledLists[0]
+      incorrect = bundledLists[1]
+
+
+      printHangperson(currentState, incorrect)
 
    # Determine if the user won or lost, and then tell them accordingly   
    if listedWord == currentState:
       print("You've won!!! Congratulations!")
+      winner_picture()
    elif numWrong >= 6:
       print("You've lost the game. He hung. It's your fault.")
 
@@ -68,7 +76,7 @@ def hangperson():
 # currentState: the current state of the word/game
 #
 # return currentState
-def updateState(guess, currentState):
+def updateState(guess, currentState, incorrect):
    global numWrong
 
    # First, determine if the letter guessed is in the word.
@@ -77,6 +85,8 @@ def updateState(guess, currentState):
    # If it isn't, tell the user and update the numWrong var
    if numInWord == 0:
       print("I'm sorry. You guessed incorrectly.")
+      #-- keep track of incorrect guess and sort them
+      incorrect.append(guess)
       numWrong += 1
    # If it is, congratulate them and update the state of the game.
    #    To update the state, make sure to replace ALL the '_' with
@@ -89,6 +99,8 @@ def updateState(guess, currentState):
          print("Congratulations! You guessed correctly. There is " + correctNumber + " of the letter '" + guess + "' in the word.")
       elif numInWord > 1:
          print("Congratulations! You guessed correctly. There are " + correctNumber + " of the letter '" + guess + "' in the word.")
+         
+         
       #-- use while loop to loop through numInWords until there are no more letters to find in the word
       #-- create a new variable and set to 0 (flag)
       numFound = 0
@@ -100,8 +112,8 @@ def updateState(guess, currentState):
             numFound += 1
          index += 1
 
-
-   return currentState
+   #-- return both parameter as a list to get around multiple function parameters that need to be returned
+   return [currentState, incorrect]
 
 
 # This helpful function prompts the user for a guess,
@@ -128,7 +140,7 @@ def userGuess():
 # DO NOT CHANGE
 #
 # state: current state of the word
-def printHangperson(state):
+def printHangperson(state, incorrect):
    person = [" O "," | \n | ", "\| \n | ", "\|/\n | ", "\|/\n | \n/  ", "\|/\n | \n/ \\"]
    print()
 
@@ -143,6 +155,9 @@ def printHangperson(state):
    for i in state:
       print(i, end=" ")
 
+   print("\n")
+
+   print(incorrect)
    print("\n")
 
 
@@ -170,7 +185,14 @@ def hang_person_picture():
    print(hang_person)
 
 def winner_picture():
-   winner_pic = """ """
+   winner_pic = """
+   WW      WW iii                               !!! !!! 
+   WW      WW     nn nnn  nn nnn    eee  rr rr  !!! !!! 
+   WW   W  WW iii nnn  nn nnn  nn ee   e rrr  r !!! !!! 
+    WW WWW WW iii nn   nn nn   nn eeeee  rr             
+     WW   WW  iii nn   nn nn   nn  eeeee rr     !!! !!! 
+                                                        
+   """
    print(winner_pic)
 
 
