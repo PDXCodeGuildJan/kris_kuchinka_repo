@@ -1,27 +1,53 @@
 # Created by: Kris Kuchinka
 # Creation Date: 2015.01.13
-# Last Date Modified: 2015.01.14
+# Last Date Modified: 2015.01.18
 
 #----->
 # Assignment at PDX Code Guild
 # Instructor: Tiffany
-#----------
-# Create a "selection sort" algorithm using python
-# The goal is to feed the algorithm numbers and have it do the following:
-# 	>>>>>find the smallest number and move it the first position,
-#	swapping what was in the first position to wherever the 
-#	the current smallest number (now in index 0) was originally 
-#	located
-#	>>>>>find the second smallest item and move it to the 2nd position, 
-#	swapping what was in the 2nd position to wherever it came from
-#   >>>>>repeat until you reach the end of the list
-# This is a description of what a selection sort algorithm does
-#----------
+# Teaching Assistant: Patrick
+# Goal: Create a series of sorting algorithms that can be used in later work
+#---------
+
+##################################################################################################################################################################
+###########--------->>>>>>> Main Function for Testing <<<<<<<---------###########
+#################################################################################
+
+
+def main():
+	numbers = [0, -2, -4, -192, 192, 47, 38, 99, 100]
+	print("\n-----> Implementation of selection_sort_easy function:")
+	print("Unsorted List: {}".format(numbers))
+	# "{}".format will fill curly bracket with info following .format function
+	print("Result:{}".format(selection_sort_easy(numbers)))
+	print("----------")
+
+	numbers_2 = [47, 0, -2, -98, 48, 49, 20, 30, 500]
+	# "Harder" selection sort print out
+	print("\n-----> Implementation of my selection_sort function:")
+	print("Unsorted List: {}".format(numbers_2))
+	print("Result{}".format(selection_sort(numbers_2)))
+	print("----------")
+
+##################################################################################################################################################################
+###########--------->>>>>>> Selection Sort Algorithm <<<<<<<---------############
+#################################################################################
 
 #----->
-# First, use basic English and explain the algorithm (i.e. the pattern) in a way that a computer can understand (the computer just wants to be told what to
+# Definition: "the selection sort algorithm starts by finding the minimum value
+# in the array and moving it to the first position. This step is then repeated
+# for the second lowest value, then the third, and so on until the array is 
+# sorted." [Definition found at http://che.gg/1RPLeZO]
+#---------
+
+#----->
+# Goal: Create a Selection Sort Algorithm that can be used in the future. Follow # the process that Tiffany has asked us to follow, so to learn the proper way to # approach these problems.
+#---------
+
+#----->
+# First: use basic English and explain the algorithm (i.e. the pattern) in a way that a computer can understand (the computer just wants to be told what to
 # do and the process and order to do it in)
-#----------
+#---------
 # Processes of Selection Sort Algorithm:
 # Given an unsorted list of numbers:
 #	>>>>> find the smallest number in the list
@@ -30,35 +56,18 @@
 #   >>>>> update the position of the first number in the unsorted list to be the 
 #		  next number in the unsorted list
 #	>>>>> repeat the process until unordered list is empty 
-#----------
+#---------
 
-#----->
-# My step by step solution: (in pseudocode)
-#----------
-
-#----------
-
-#----->
-# List of probable variables that will be needed:
-#----------
-
-#----------
 ##############################################################################
-#--- Tiffany said this was "gold" and the most "Pythonic way using Python
-#--- to do the heavy lifting in the min function, as well as index locator.
-def main():
-	numbers = [22, 99, 47, -33, 29, 57, 1, 2, 3]
-	print("\nUnsorted List: {}".format(numbers))
-	print("The following numbers are sorted by my selection_sort_easy function:")
-	# "{}".format will fill curly bracket with info following .format function
-	print("{}\n".format(selection_sort_easy(numbers)))
+######################## -----> Coding Attempts <----- #######################
+##############################################################################
 
-	numbers_2 = [47, 0, -2, 100, -100, 58, 1, 2, 3, 500]
-	# "Harder" selection sort print out
-	print("\nUnsorted List: {}".format(numbers_2))
-	print("\nThe numbers were sorted by my selection_sort function:")
-	print("{}\n".format(selection_sort(numbers_2)))
+#----->
+# Tiffany said this was "gold" and the most "Pythonic way using Python to do the # "heavy lifting" by using the min function, as well as index locator. She asked # me to rename it to selections_sort_easy and then to try again, this time 
+# finding programatic ways to accomplish the processes
 
+# She said that this was the way we would be doings things in two weeks and that # she was excited to work with me, based on what she saw below, but that it was # best to do it long form, to enhance my learning experience.
+#---------
 
 def selection_sort_easy(numbers):
 
@@ -78,12 +87,10 @@ def selection_sort_easy(numbers):
 		i += 1
 	return numbers
 
-
-
-
-
-##############################################################################
-#--> is the function that does a selection sort and doesn't let built in functions do the "heavy lifting" for me
+#----->
+# Below is my second attempt at the Selection Sort Algorithm, in a more long 
+# form way
+#---------
 
 def selection_sort(numbers):
 	
@@ -101,22 +108,21 @@ def selection_sort(numbers):
 				# cur_index value, that stores where the lowest found num is
 			# cur_index--> index location that moves process forward and is 
 				# compared to value in location of low_index
-
 		# initiate variables (in this case i=0 (set above), because you are 
 			# starting)
 		low_index = i
 		curr_index = i
 		# loop through the current index until it reaches the end of possible
-		#	index variables values
+			#index variables values
 		while curr_index < len(numbers):
 			# if value of number in lowest index position is greater than 	
 			#	the current index....
 			if numbers[low_index] > numbers[curr_index]:
-				# set the value of the location (index) to the value of the current index location
+				# set the value of the location (index) to the value of the 		#current index location
 				# both of these variables are ITERATIONS of the "numbers" list
 				low_index = curr_index
 				# increment the current_index by one, because the cur_index
-				#	moves the process forward
+					# moves the process forward
 			curr_index += 1
 
 		# swap what is in the i index with what is in the low_index
@@ -128,8 +134,22 @@ def selection_sort(numbers):
 
 	return numbers
 
-	
+#----->
+# Note: 
+#---------
 
+
+##################################################################################################################################################################
+#########--------->>>>>>> End Selection Sort Algorithm <<<<<<<---------##########
+#################################################################################
+
+
+
+
+
+#----->
+# Call Main Function to run program testing of different sorting algorithms. Def # Main is at the top of this file
+#---------
 main()
 
 
