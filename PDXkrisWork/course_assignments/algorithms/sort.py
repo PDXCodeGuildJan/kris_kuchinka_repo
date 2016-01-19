@@ -1,6 +1,6 @@
 # Created by: Kris Kuchinka
 # Creation Date: 2015.01.13
-# Last Date Modified: 2015.01.18
+# Last Date Modified: 2015.01.19
 
 #----->
 # Assignment at PDX Code Guild
@@ -183,16 +183,7 @@ def selection_sort(numbers):
 #---------
 
 #----->
-# Goal: Create a Bubble Sort Algorithm that can be used in the future. Follow   # the process that Tiffany has asked us to follow, so to learn the proper way to # approach these problems.
-#---------
-
-#----->
-# First: use basic English and explain the algorithm (i.e. the pattern) in a way that a computer can understand (the computer just wants to be told what to
-# do and the process and order to do it in)
-#---------
-# Processes of Bubble Sort Algorithm:
-# Given an unsorted list of numbers:
-#	>>>>> 
+# Goal: Create a Bubble Sort Algorithm that can be used in the future.
 #---------
 
 ##############################################################################
@@ -210,7 +201,9 @@ def bubble_sort(current_list):
 		length_unsorted -= 1
 	return current_list
 
-
+##################################################################################################################################################################
+##########--------->>>>>>> End Bubble Sort Algorithm <<<<<<<---------############
+#################################################################################
 
 
 
