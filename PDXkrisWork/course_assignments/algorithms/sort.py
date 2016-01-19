@@ -29,6 +29,34 @@ def main():
 	print("Result{}".format(selection_sort(numbers_2)))
 	print("----------")
 
+	numbers_3 =[45, 0, -1, 39, 40]
+	print("\n-----> Implementation of my bubble_sort function:")
+	print("Unsorted List: {}".format(numbers_3))
+	print("Result{}".format(bubble_sort(numbers_3)))
+	print("----------")
+
+
+
+##################################################################################################################################################################
+##########--------->>>>>>> Swap Function for Algorithm <<<<<<<---------##########
+#################################################################################
+
+def swap(chosen_list, index_1, index_2):
+	holding = chosen_list[index_1]
+	chosen_list[index_1] = chosen_list[index_2]
+	chosen_list[index_2] = holding
+	return chosen_list
+
+
+##################################################################################################################################################################
+########--------->>>>>>> End Swap Function for Algorithm <<<<<<<---------########
+#################################################################################
+
+
+
+
+
+
 ##################################################################################################################################################################
 ###########--------->>>>>>> Selection Sort Algorithm <<<<<<<---------############
 #################################################################################
@@ -124,11 +152,12 @@ def selection_sort(numbers):
 				# increment the current_index by one, because the cur_index
 					# moves the process forward
 			curr_index += 1
-
 		# swap what is in the i index with what is in the low_index
-		holding_chamber = numbers[i]
-		numbers[i] = numbers[low_index]
-		numbers[low_index] = holding_chamber
+		swap(numbers, i, low_index)
+
+		# holding_chamber = numbers[i]
+		# numbers[i] = numbers[low_index]
+		# numbers[low_index] = holding_chamber
 		
 		i += 1
 
@@ -142,6 +171,47 @@ def selection_sort(numbers):
 ##################################################################################################################################################################
 #########--------->>>>>>> End Selection Sort Algorithm <<<<<<<---------##########
 #################################################################################
+
+
+
+###############################################################################################################################################################################--------->>>>>>> Bubble Sort Algorithm <<<<<<<---------#############
+#################################################################################
+
+#----->
+# Definition: "Bubble sort is a sorting algorithm that works by repeatedly       # stepping through lists that need to be sorted, comparing each pair of adjacent # items and swapping them if they are in the wrong order. This passing procedure # is repeated until no swaps are required, indicating that the list is sorted.  # Bubble sort gets its name because smaller elements bubble toward the top of 
+# the list [Definition found at http://bit.ly/23aM0UA]
+#---------
+
+#----->
+# Goal: Create a Bubble Sort Algorithm that can be used in the future. Follow   # the process that Tiffany has asked us to follow, so to learn the proper way to # approach these problems.
+#---------
+
+#----->
+# First: use basic English and explain the algorithm (i.e. the pattern) in a way that a computer can understand (the computer just wants to be told what to
+# do and the process and order to do it in)
+#---------
+# Processes of Bubble Sort Algorithm:
+# Given an unsorted list of numbers:
+#	>>>>> 
+#---------
+
+##############################################################################
+######################## -----> Coding Attempts <----- #######################
+##############################################################################
+
+def bubble_sort(current_list):
+	length_unsorted = len(current_list)
+	while length_unsorted > 1:
+		i = 0
+		while i < length_unsorted - 1:
+			if current_list[i] > current_list [i + 1]:
+				current_list = swap(current_list, i, i+1)
+			i += 1
+		length_unsorted -= 1
+	return current_list
+
+
+
 
 
 
