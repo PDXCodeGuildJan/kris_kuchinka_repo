@@ -9,9 +9,9 @@
 # Goal: Create a series of sorting algorithms that can be used in later work
 #---------
 
-##################################################################################################################################################################
-###########--------->>>>>>> Main Function for Testing <<<<<<<---------###########
-#################################################################################
+########################################################################################################################################################################
+###########--------->>>>>>> Main Function for Testing <<<<<<<---------##############
+####################################################################################
 
 
 def main():
@@ -29,17 +29,22 @@ def main():
 	print("Result{}".format(selection_sort(numbers_2)))
 	print("----------")
 
-	numbers_3 =[45, 0, -1, 39, 40]
+	numbers_3 = [45, 0, -1, 39, 40]
 	print("\n-----> Implementation of my bubble_sort function:")
 	print("Unsorted List: {}".format(numbers_3))
 	print("Result{}".format(bubble_sort(numbers_3)))
 	print("----------")
 
+	numbers_4 = [41, 2, 3, -1, 55, 66, 77, 91, 4]
+	print("\n-----> Implementation of my merge_sort function:")
+	print("Unsorted List: {}".format(numbers_4))
+	print("Result{}".format(merge_sort(numbers_4)))
+	print("----------")
 
 
-##################################################################################################################################################################
-##########--------->>>>>>> Swap Function for Algorithm <<<<<<<---------##########
-#################################################################################
+########################################################################################################################################################################
+##########--------->>>>>>> Swap Function for Algorithm <<<<<<<---------#############
+####################################################################################
 
 def swap(chosen_list, index_1, index_2):
 	holding = chosen_list[index_1]
@@ -48,18 +53,18 @@ def swap(chosen_list, index_1, index_2):
 	return chosen_list
 
 
-##################################################################################################################################################################
-########--------->>>>>>> End Swap Function for Algorithm <<<<<<<---------########
-#################################################################################
+########################################################################################################################################################################
+########--------->>>>>>> End Swap Function for Algorithm <<<<<<<---------###########
+####################################################################################
 
 
 
 
 
 
-##################################################################################################################################################################
-###########--------->>>>>>> Selection Sort Algorithm <<<<<<<---------############
-#################################################################################
+########################################################################################################################################################################
+###########--------->>>>>>> Selection Sort Algorithm <<<<<<<---------###############
+####################################################################################
 
 #----->
 # Definition: "the selection sort algorithm starts by finding the minimum value
@@ -86,9 +91,9 @@ def swap(chosen_list, index_1, index_2):
 #	>>>>> repeat the process until unordered list is empty 
 #---------
 
-##############################################################################
-######################## -----> Coding Attempts <----- #######################
-##############################################################################
+####################################################################################
+######################## -----> Coding Attempts <----- #############################
+####################################################################################
 
 #----->
 # Tiffany said this was "gold" and the most "Pythonic way using Python to do the # "heavy lifting" by using the min function, as well as index locator. She asked # me to rename it to selections_sort_easy and then to try again, this time 
@@ -168,14 +173,14 @@ def selection_sort(numbers):
 #---------
 
 
-##################################################################################################################################################################
-#########--------->>>>>>> End Selection Sort Algorithm <<<<<<<---------##########
-#################################################################################
+########################################################################################################################################################################
+#########--------->>>>>>> End Selection Sort Algorithm <<<<<<<---------#############
+####################################################################################
 
 
 
-###############################################################################################################################################################################--------->>>>>>> Bubble Sort Algorithm <<<<<<<---------#############
-#################################################################################
+###############################################################################################################################################################################--------->>>>>>> Bubble Sort Algorithm <<<<<<<---------######################
+####################################################################################
 
 #----->
 # Definition: "Bubble sort is a sorting algorithm that works by repeatedly       # stepping through lists that need to be sorted, comparing each pair of adjacent # items and swapping them if they are in the wrong order. This passing procedure # is repeated until no swaps are required, indicating that the list is sorted.  # Bubble sort gets its name because smaller elements bubble toward the top of 
@@ -186,9 +191,9 @@ def selection_sort(numbers):
 # Goal: Create a Bubble Sort Algorithm that can be used in the future.
 #---------
 
-##############################################################################
-######################## -----> Coding Attempts <----- #######################
-##############################################################################
+####################################################################################
+######################## -----> Coding Attempts <----- #############################
+####################################################################################
 
 def bubble_sort(current_list):
 	length_unsorted = len(current_list)
@@ -201,19 +206,93 @@ def bubble_sort(current_list):
 		length_unsorted -= 1
 	return current_list
 
-##################################################################################################################################################################
-##########--------->>>>>>> End Bubble Sort Algorithm <<<<<<<---------############
-#################################################################################
+########################################################################################################################################################################
+##########--------->>>>>>> End Bubble Sort Algorithm <<<<<<<---------###############
+####################################################################################
 
 
 
 
+###############################################################################################################################################################################--------->>>>>>> Merge Sort Algorithm <<<<<<<---------#######################
+####################################################################################
+
+#----->
+# Definition: 
+# Given two lists, merge them together into a third list which is sorted.
+#---------
+
+#----->
+# Goal: Create a Merge Sort Algorithm that can be used in the future.
+#---------
+
+####################################################################################
+######################## -----> Coding Attempts <----- #############################
+####################################################################################
+
+
+# merge_sort
+def merge_sort(given_list):
+	"""Implement the merge sort algorithm"""
+	#	Split the list into two halves, if more than 1 unit
+	if len(given_list) > 1:
+		start = 0
+		end = len(given_list)
+		mid = len(given_list) // 2
+		# separate into two lists
+		first_sorted, second_sorted = given_list[start:mid], given_list[mid:end]
+		# first_sorted = Sort the first half using merge_sort
+		first_sorted = merge_sort(first_sorted)
+		# second_sorted = Sort the second half using merge_sort
+		second_sorted = merge_sort(second_sorted)
+		#	Merge the two sorted halves back together into a merged list
+		given_list = merge(first_sorted, second_sorted)
+	
+	#	Return the merged, sorted list
+	return given_list
+		
+def merge(list_1, list_2):
+	""" Given two lists, merge them together into a third list, which is sorted."""
+	index_1 = 0
+	index_2 = 0
+	index_destination = 0
+	length_1 = len(list_1)
+	length_2 = len(list_2)
+	list_destination = [None] * (length_1 + length_2)
+
+	while index_1 < length_1 and index_2 < length_2:
+		if list_1[index_1] < list_2[index_2]:
+			list_destination[index_destination] = list_1[index_1] 
+			index_destination += 1
+			index_1 += 1
+		else:
+			list_destination[index_destination] = list_2[index_2]
+			index_destination += 1
+			index_2 += 1 
+
+	while index_1 < length_1:
+		list_destination[index_destination] =list_1[index_1]
+		index_destination += 1
+		index_1 += 1 
+
+	while index_2 < length_2:
+		list_destination[index_destination] =list_2[index_2]
+		index_destination += 1
+		index_2 += 1 
+
+	return list_destination
+
+########################################################################################################################################################################
+##########--------->>>>>>> End Merge Sort Algorithm <<<<<<<---------################
+####################################################################################
 
 
 #----->
 # Call Main Function to run program testing of different sorting algorithms. Def # Main is at the top of this file
 #---------
-main()
+# Only run when file is called specifically (use if conditional)
+if __name__ == "__main__":
+	main()
+
 
 
 
