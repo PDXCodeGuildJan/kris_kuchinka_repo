@@ -230,52 +230,75 @@ def bubble_sort(current_list):
 ####################################################################################
 
 
-# merge_sort
+# define the merger sort function and feed it the parameter of a given list
 def merge_sort(given_list):
 	"""Implement the merge sort algorithm"""
-	#	Split the list into two halves, if more than 1 unit
+	# Split the list into two halves, if more than 1 unit
+	# If the length of the parameter fed to the function is greater than 1...
 	if len(given_list) > 1:
+		# initialize index variables for start, end and middle
 		start = 0
+		# the end of index location is the same as the total length of the given_list parameter
 		end = len(given_list)
+		# to find the middle index value, divide the given_list parameter by integer value of 2
 		mid = len(given_list) // 2
-		# separate into two lists
+		# separate into two lists and assign them values....
+		# first_sorted variable is the list that spans from the start of the list to the middle, which is established above
+		# second_sorted variable is the list that spans from the middle (established above) to the end, which is also established above
 		first_sorted, second_sorted = given_list[start:mid], given_list[mid:end]
 		# first_sorted = Sort the first half using merge_sort
+		# the merge sort function helps find the first_sorted list using merge_sort function recursively
 		first_sorted = merge_sort(first_sorted)
-		# second_sorted = Sort the second half using merge_sort
+		# second_sorted = Sort the second half using merge_sort function recursively
 		second_sorted = merge_sort(second_sorted)
-		#	Merge the two sorted halves back together into a merged list
+		#	Merge the two sorted halves back together into a merged list called given list. The merge function takes two parameters and is defined below
 		given_list = merge(first_sorted, second_sorted)
 	
-	#	Return the merged, sorted list
+	# After using the merge function and putting the first and second sorted lists together, put them into the variable "given_list" (refer to above) and return it
 	return given_list
 		
+# create a merge function that takes two lists and puts them together in proper order. Parameters are list_1 and list_2
 def merge(list_1, list_2):
 	""" Given two lists, merge them together into a third list, which is sorted."""
+	# set the value of the index number for the first list
 	index_1 = 0
+	# set the value of the index number for the second list
 	index_2 = 0
+	# set the value of the index destination
 	index_destination = 0
+	# find the length of first list parameter and assign it to a variable
 	length_1 = len(list_1)
+	# find the length of the second list parameter and asssign it to a variable
 	length_2 = len(list_2)
+	# assign a variable to the final list. It needs to have a value (which is none-- still a  value, but not 0 or null) and multiply it by the length_1 and length_2 sum
 	list_destination = [None] * (length_1 + length_2)
 
+	# loop while the following condition consists: index_1 is less than length_1 AND index 2 is less than length_2
 	while index_1 < length_1 and index_2 < length_2:
+		# if the index value of list 1 (which is set to 0 originally) is less than the index value at index_2 of list_2 (which is also originally set to 0) do the following:
 		if list_1[index_1] < list_2[index_2]:
+			# assign the value of the number in the index location of the first list and put it in the the final list that is being compiled in the first index location (which is set at 0)
 			list_destination[index_destination] = list_1[index_1] 
+			# increment the index value of index_destination so that the next number does not overwrite the same value as the previous one
 			index_destination += 1
+			# increment the quantity of the index location for the first list to move through the list and not repeat values 
 			index_1 += 1
 		else:
+			# if the value of index_2 for list_2 is less than list_1[index_1]:
 			list_destination[index_destination] = list_2[index_2]
+			# increment index_destination to put the value into the proper part of the final list
 			index_destination += 1
+			# increment the value of index location 2 so that the list can continue to be moved forward and through as it is compared to the other
 			index_2 += 1 
 
+	# 
 	while index_1 < length_1:
-		list_destination[index_destination] =list_1[index_1]
+		list_destination[index_destination] = list_1[index_1]
 		index_destination += 1
 		index_1 += 1 
 
 	while index_2 < length_2:
-		list_destination[index_destination] =list_2[index_2]
+		list_destination[index_destination] = list_2[index_2]
 		index_destination += 1
 		index_2 += 1 
 
