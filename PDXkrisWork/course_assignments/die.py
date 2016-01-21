@@ -26,7 +26,16 @@ from random import randint
 def custom_die(number_1, number_2):
 	# make sure to have the two inputs in the randint() function
 	roll = randint(number_1, number_2)
-	print(roll)
+	
+	# Determine wether dice roll is max or min possible
+	# adding ".format" to a string with "{}" allows you to feed in values to
+	# the curly bracket spaces from the variables or inputs inside the format()
+	if roll == number_1:
+		print("{r} Critical Fail!".format(r=roll))
+	elif roll == number_2:
+		print("{r} Critical Hit!".format(r=roll))
+	else:
+		print(r)
 
 # define the range of numbers to find a number when function is called
 

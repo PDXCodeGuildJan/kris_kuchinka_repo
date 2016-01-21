@@ -12,8 +12,8 @@
 from sort import bubble_sort
 
 def main():
-	unsorted_list = ["E", "Z", "L", "O", "B", "F"]
-	target_value = "O"
+	unsorted_list = ["E", "Z", "L", "O", "B", "F", "G", "X", "Y", "M", "N"]
+	target_value = "X"
 
 	# Call the search function, catch what it returns (tuple)
 	sorted_list, target_index = binary_search(unsorted_list, target_value)
