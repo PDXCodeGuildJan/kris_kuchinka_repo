@@ -4,6 +4,9 @@ __author__ = "Kris Kuchinka"
 # Creation Date: 2015.01.21
 # Last Date Modified:
 
+# import regular expressions module that has built in functions to validate and do other things for sanitization
+import re
+
 # initialize variable phonebook and make it a dictionary that can store phone numbers
 # at this point, it is an empty dictionary called phonebook
 phonebook = {}
@@ -40,8 +43,28 @@ def main():
 # create a function for adding information to the phonebook dictionary
 def add_contact(name, phone_number):
 	"""Does an addition to the Phonebook with added contact info."""
-	phonebook[name] = phone_number
-	print("Thank you. Your new contact " + name + " was added with the following phone number: " + phone_number + ". \n")
+#--------------------- Begin RegEx-----------------#
+#---------- Need to Research on own time-----------#
+
+	regex = "\s+\Z"
+	replacement_string = ""
+	scrubbed_name = re.sub(regex, replacement_string, name)
+	
+	regex = "[0-9]+"
+	nums = re.findall(regex, phone_number)
+	new_num = ""
+	for every_num in nums: 
+		new_num += every_num
+
+	# Introduce the correct formatting
+	formatted_num = "(" + new_num[0:3] + ") " + new_num[3:6] + "-" + new_num[6:]
+
+
+	phonebook[scrubbed_name] = formatted_num
+	print("Thank you. Your new contact " + scrubbed_name + " was added with the following phone number: " + formatted_num + ". \n")
+
+
+#--------------------- End RegEx -------------------#
 
 def delete_contact(name):
 	"""Remove the given contact from the Phonebook."""
