@@ -38,5 +38,13 @@ class Address:
 		self.zip_code = ""
 		self.country = ""
 
-	def print_address(self):
-		"""Print out address in proper format"""
+	def  __str__(self):
+		"""Print out address in proper format as one string instead of separate
+		print statements"""
+		if self.unit != "":
+			formatted_str = {}", " {}.format(self.street, self.unit)
+		formatted_str += "\n" {}", " {}.format(self.city, self.state)
+		formatted_str += "\n" {}.format(self.zip_code)
+		formatted_str += "\n" {}.format(self.country)
+
+		return formatted_str
