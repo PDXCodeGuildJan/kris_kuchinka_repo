@@ -11,47 +11,38 @@ Date finished:
 
 # import randint function from random module to implement dice roll 
 from random import randint
+import os
 
 
 def main():
 
+	print("\nWelcome to Angry Dice. I hope you enjoy the game. Please note, " \
+	      "at any prompt, you can type 'q' to quit the game.\n")
+
 	player_name = input("What is your name? >>  ")
 	
-	game = Angry_Dice(player_name)
-
 	# Wrap function end_game around all input options so that they player can 
-	# press "Q" and leave the game if they desire to 
-	end_game(game.player_name)
+	# press "Q" and leave the game if they desire to
+	end_game(player_name)
 
-	# game_understanding = input
-
-	print(game.player_name)
-
-
-		# print("\nWelcome to the game of Angry Dice!\n")
-		# print("""Do you know the rules of the game 'Y' if you know the rules and
-		# 	'N' if you want them to be printed out for you >> """)
-
-		# if game_understanding().upper() == "N":
-		# 	game.game_rules()
-		
-		# print("You can always press 'q' to exit the game.\n")
-
-		# end_game(game_understanding)
-
-
-
-
-
+	game = Angry_Dice(player_name)
 	
-	# Goal is reach stage 4. Set the beginning stage to 1 for start of game.
-	player.current_stage = 1
+	print("\nWelcome, {}! Let's play the game...".format(game.player_name))
 
-	while player.current_stage != 4:
+	game.game_rules()
+
+	while game.current_stage < 4:
 		# Roll the dice, using function created below and player initiated above
-		player.roll_dice()
-		player.player_choice()
-		player.win_round()
+		os.system("clear")
+		game.roll_dice()
+		if game.check_angry():
+			game.unlock_die()
+			continue
+		if game.win_round():
+			game.unlock_die()
+			continue
+		game.player_choice()
+
 	
 
 	# Check if both the die are "angry"
@@ -102,8 +93,15 @@ class Angry_Dice():
 		"""Define method to check if both die are 'angry'"""
 		
 		if self.die_1.value == 3 and self.die_2.value == 3:
-			print("angry!!!")
 			current_stage = 1
+			input("""
+
+				++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				Anger has occurred. Back to Stage 1. Press enter to continue
+				++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"""
+			return True
+		else: 
+			return False
 	
 	
 	def win_round(self):
@@ -113,8 +111,16 @@ class Angry_Dice():
 	
 		if self.die_1.value in current_goal and self.die_2.value in current_goal:
 			if self.die_1.value != self.die_2.value:
-				print("Goal met")
 				self.current_stage += 1
+				os.system("clear")
+				input("""
+
+					++++++++++++++++++++++++++++++++++++++++++++++++++++++
+					Goal met. Welcome to stage {}. Press enter to continue
+					++++++++++++++++++++++++++++++++++++++++++++++++++++++""".format(self.current_stage))
+				return True
+		else:
+			return False
 
 		print("Stage after check:", self.current_stage)
 
@@ -125,7 +131,7 @@ class Angry_Dice():
 		# ask the player if they want to lock the die
 		# evaluate their response (yes or no)
 			# if yes, lock chosen die
-		lock_die_1 = input("Would you like to hold Die 1? (Y)es or (N)o)? ")
+		lock_die_1 = input("Would you like to hold Die 1? (Y)es or (N)o? >>> ")
 		end_game(lock_die_1)
 
 		if lock_die_1.upper() == "Y":
@@ -134,7 +140,7 @@ class Angry_Dice():
 			lock_die_1.upper() == "N"
 			self.die_1.locked = False
 
-		lock_die_2 = input("Would you like to hold Die 2? (Y)es or (N)o? ")
+		lock_die_2 = input("Would you like to hold Die 2? (Y)es or (N)o? >>> ")
 		end_game(lock_die_2)
 		if lock_die_2.upper() == "Y":
 			self.die_2.locked = True
@@ -142,42 +148,55 @@ class Angry_Dice():
 			lock_die_2.upper() == "N"
 			self.die_2.locked = False
 
-#!>!>!?####---> Possibly not necessary, part of holding decision
-	def evaluate_hold(self):
-		"""Method to evaluate and ensure that game rules are followed, i.e. invalid dice can not be held"""
-		pass
-
-
-# =====>>> Possibly unnecessary		
-	# def advance_round(self):
-	# 	"""Method to advance player to next stage in the game or to the winning stage"""
-	# 	pass
-		# if player is on Stage 1 and die 1 and 2 values are 1 and 2, advance player to Stage 2
-
-
+	def unlock_die(self):
+		self.die_1.locked = False
+		self.die_2.locked = False
 
 	def game_rules(self):
-		"""A thorough explanation of the game rules for a new player."""
-		print("\n----------The Battle----------")
-		print("\tDuelists roll their dice at the same time, trying to get from 1 to 6 the fastest. The first to do so wins!")
-		print("\tRolling two 'Angry Dice' means that you have to start over at Round 1")
-		print("\tYou may also choose to lock 1 die, if it is a number you need to pass on to the next round.")
+		rules = """
+			   A thorough explanation of the game rules for a new player.
+		                ----------The Battle----------
 
-		print("\n---------- Round Goals ----------")
-		print("""\tEach duelist gets two 'Angry Dice'. Duelists roll thier dice,
+		Duelists roll their dice at the same time, trying to get from 1 to 6 
+		the fastest. The first to do so wins! Rolling two 'Angry Dice' means 
+		that you have to start over at Round 1. 
+
+		You may also choose to lock dice. If you lock a die, it won't be rolled.
+		If you lock an incorrect die, you will be able to unlock it after the
+		next roll. 
+
+		                ---------- Round Goals ----------
+		Each duelist gets two 'Angry Dice'. Duelists roll thier dice,
 			 looking to complete Round 1 through Round 3. When each round is 
-			 complete, the duelist must declare it out loud.\n""")
-		print("\nRound 1 objective:")
-		print("\tYou must have a value of 1 and 2 on your two die.")
-		print("\nRound 2 objective:")
-		print("""\tPlayer must have one 'Angry Dice' and one die with the 
-			 value of 4.""")
-		print("\nRound 3 objective:")
-		print("\tPlayer die must have values of 5 and 6.\n")
+			 complete, the duelist must declare it out loud.
+		
+		Round 1 objective:
+		You must have a value of 1 and 2 on your two die.
+		
+		Round 2 objective:
+		Player must have one 'Angry Dice' and one die with the 
+			 value of 4.
+		
+		Round 3 objective:
+		Player die must have values of 5 and 6.
 
-		print("\n---------- Victory ----------")
-		print("""\tThe first duelist to race through all the stages and
-			 announces Get Angry! is declared the victor.""")
+		                ---------- Victory ----------
+		The first duelist to race through all the stages and
+			 announces Get Angry! is declared the victor.\n"""
+
+
+		game_understanding = input("Do you know the rules of the game?" \
+			" (Y)es or (N)o >>>   ")
+		# Allows player to quit, if they choose to type 'q'		
+		end_game(game_understanding)
+		
+		if game_understanding.upper() == "N":
+			print(rules)
+			input("Press Enter to continue.")
+		elif game_understanding.upper() == "Y":
+			print("Let the game begin!")
+
+				
 
 
 
