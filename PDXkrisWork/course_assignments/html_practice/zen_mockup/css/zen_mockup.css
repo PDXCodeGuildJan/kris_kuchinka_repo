@@ -1,0 +1,120 @@
+/* Import fonts from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Nova+Square);
+
+* {
+	/*-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;*/
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	background-color: #eeeeee; /*off-white/light gray*/
+	font-family: sans-serif;
+}
+
+article {
+    box-shadow: 30px 40px #7ab3b0; /*lighter green*/
+}
+
+.page-wrapper {
+	margin: 6% 12%;
+	min-width: 450px;
+}
+
+.intro h1 {
+	color: #e23045; /*red*/
+	font-size: 34px;
+	font-family: 'Nova Square';
+}
+
+.intro h2 {
+	background-color: #e23045; /*red*/
+	color: #ffffff; /*white*/
+	font-family: 'Nova Square';
+	padding: 2px;
+	border-radius: 4px;
+}
+
+.preamble {
+	background-color: #1b4549; /*dark green*/
+	color: #fff6e0; /*cream*/
+	padding: 8px;
+	margin-top: 8px;
+	margin-bottom: 60px;
+	border-radius: 4px;
+}
+
+h3 {
+	font-family: 'Nova Square';	
+}
+
+.main article {
+    background-color: #fff6e0; /*cream*/
+    margin-bottom:10px;
+    border: .5px solid;
+    padding: 2px 18px;
+    border-radius: 4px;
+}
+
+.participation a {
+	color: #e23045; /*red*/
+	text-decoration: none;
+}
+
+.zen-validate-html, .zen-validate-css {
+	text-decoration: none;
+	background-color: #908673; /*dark green(ish)*/
+	color: #ffffff; /*white*/
+	margin: 0 auto;
+	border: .5px solid;
+	padding: 6px;
+	box-shadow: 10px 18px #d8cfbc; /*light(ish) green*/
+	border-radius: 4px;
+}
+
+.main, aside {
+	display: inline-block;
+}
+
+.main {
+	width: 62%;
+}
+
+aside {
+	width: 32%;
+	vertical-align: top;
+	margin-left: 4%;
+	font-size: 18px;
+	text-align: center;
+}
+
+.zen-resources a {
+	text-decoration: none;
+	color: #fff6e0; /*cream*/
+}
+
+.zen-resources li {
+	background-color: #e23045; /*red*/
+	padding: 8px;
+	margin: 4px;
+	box-shadow: 10px 16px #f59581; /*light red*/
+}
+
+.zen-resources ul {
+	list-style-type: none;
+}
+
+.resources {
+	display: none;
+}
+
+footer {
+	text-align: right;
+	margin-top: 80px;
+}
+
+
+
+
