@@ -80,6 +80,7 @@ h3 {
 
 .main {
 	width: 62%;
+	min-width: 450px;
 }
 
 aside {
@@ -88,6 +89,7 @@ aside {
 	margin-left: 4%;
 	font-size: 18px;
 	text-align: center;
+	min-width: 300px;
 }
 
 .zen-resources a {
