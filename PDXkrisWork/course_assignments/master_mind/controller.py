@@ -1,5 +1,5 @@
 """Control module for the game of Master Mind"""
-"""<<<<<(Insert game description)>>>>>"""
+"""<<<<<(Insert game description, yay descriptions!!!)>>>>>"""
 
 __author__ = "Alexis Bird & Kris Kuchinka"
 
