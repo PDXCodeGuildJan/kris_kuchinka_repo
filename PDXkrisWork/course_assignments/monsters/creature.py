@@ -2,6 +2,15 @@
 # Created by: Kris Kuchinka
 # Creation Date: 2016.02.05
 
+class Weapon:
+	"""
+	Weapon objects that creatures can equip.
+	"""
+
+	def __init__(self, attack_value):
+		self.base_damage = attack_value
+
+
 
 class Creature:
 	"""Defines the Creature class, the base class of all living things in our 
@@ -28,7 +37,18 @@ class Creature:
 		
 
 	def attack(self):
-		pass
+		"""
+		Return the attack value of the creature, given its base attack value, weapon attack value and state.
+		"""
+		# Set the attack value to the base attack amount
+		attack_value = self.attack_points
+
+		# If we have a weapon, add the weapon's damage to attack_value
+		if self.weapon: 
+			attack_value += self.weapon.base_damage
+
+		return attack_value
+
 
 	def heal(self, heal_amount):
 		pass
