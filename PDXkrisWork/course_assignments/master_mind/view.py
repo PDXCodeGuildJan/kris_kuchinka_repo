@@ -101,6 +101,8 @@ class GameInterface():
 		
 
 		print("\nYour guess is: \n--------------- \nPosition A: {} \nPosition B: {} \nPosition C: {} \nPosition D: {}\n".format(position_a, position_b, position_c, position_d))
+
+	return guess
 		#--------- Fuck Up Zone --------------
 		# confirm_guess = input("In the voice of Regis Philbin, 'Is that your final answer?' ").lower()
 
@@ -112,14 +114,17 @@ class GameInterface():
 		# else:
 		# 	print("That didn't work. Try again.")
 			
+
 		# answer = 0
 		# while answer <= len(guess):
 		# 	print("The colors you picked out where {}".format(guess))
 		# 	answer += 1
 
+
 		# for answer in guess:
 		# 	print(answer)
 		#------------- End of Fuck Up Zone---------
+
 
 	def final_screen(self):
 		"""

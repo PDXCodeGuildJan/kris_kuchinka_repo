@@ -60,7 +60,6 @@ class MasterMind():
 		colors = self.model.peg_colors
 		guess = self.view.get_guess(colors)
 
-
 	def display_rules(self, rules):
 		"""
 		Gives player option to view the rules of the game.
