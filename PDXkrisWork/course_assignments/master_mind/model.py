@@ -13,19 +13,25 @@ Date Finished:
 """
 
 class PlayerPeg():
-	"""Defines the attributes of the object that is Player Peg"""
+	"""
+	Defines the attributes of the object that is Player Peg
+	"""
 	def __init__(self, color):
 		self.color = color
 
 class ConfPeg():
-	"""Defines the attributes for the confirmation pegs that the computer 
-	utilizes to tell the player what is correct."""
+	"""
+	Defines the attributes for the confirmation pegs that the computer 
+	utilizes to tell the player what is correct.
+	"""
 	def __init__(self, color):
 		self.color = color
 
 class GameData():
-	"""Holds all the information and content for the current game that is being 
-	played."""
+	"""
+	Holds all the information and content for the current game that is being 
+	played.
+	"""
 	def __init__(self):
 		self.rules = """
 				Master Mind
@@ -55,7 +61,9 @@ do it within 10 rounds, they win, otherwise they lose.
 		self.current_eval = {}		
 
 class Guess():
-	"""Stores the past and current guesses of the player."""
+	"""
+	Stores the past and current guesses of the player.
+	"""
 	def __init__(self):
 		self.player_guess = []
 		self.mm_eval = []
