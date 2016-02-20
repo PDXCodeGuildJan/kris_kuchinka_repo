@@ -102,7 +102,7 @@ class GameInterface():
 
 		print("\nYour guess is: \n--------------- \nPosition A: {} \nPosition B: {} \nPosition C: {} \nPosition D: {}\n".format(position_a, position_b, position_c, position_d))
 
-	return guess
+		return guess
 		#--------- Fuck Up Zone --------------
 		# confirm_guess = input("In the voice of Regis Philbin, 'Is that your final answer?' ").lower()
 
