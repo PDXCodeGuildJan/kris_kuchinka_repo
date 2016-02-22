@@ -121,3 +121,6 @@ class MasterMind():
 		Method that increments the round that the player is on.
 		"""
 		pass
+
+if __name__ == '__main__':
+	MasterMind()
