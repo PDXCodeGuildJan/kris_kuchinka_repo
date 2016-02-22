@@ -77,6 +77,9 @@ class MasterMind():
 		"""
 		
 		chosen_colors = ["Black", "White", "Blue", "Yellow"]
+
+		# chosen_colors = self.view.get_guess()
+		
 		
 
 		# Take in the players round choice and compare to the master mind secret

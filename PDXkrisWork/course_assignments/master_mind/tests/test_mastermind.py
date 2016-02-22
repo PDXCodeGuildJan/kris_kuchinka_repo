@@ -73,9 +73,7 @@ class ControllerTest(unittest.TestCase):
 
 		code = self.mastermind.create_secret_code()
 
-		code2 = self.mastermind.create_secret_code()
-
-		self.assertNotEqual(code, code2, "The two resulting codes are equivalent")
+		self.assertNotEqual(code, "The two resulting codes are equivalent")
 #---------------> end of create_secret_code testing <------------
 
 #---------------> begin color search testing <--------------------
@@ -86,13 +84,22 @@ class ControllerTest(unittest.TestCase):
 		"""
 
 		# Saving variable, running function
-		self.mastermind.chosen_colors = self.mastermind.color_search()
+		chosen_colors = self.mastermind.color_search()
 		
 		# Test to make sure that the provided data is a list
 		self.assertIsInstance(chosen_colors, list, "Your value is not a list.")
 
 
+	def test_create_search_entry_list_is_strings(self):
+		"""
+		Perform test to check that given list is full of strings.
+		"""
+		# Saving variable, running function
+		code = self.mastermind.color_search()
 
+		# Test to make sure list items are strings
+		for item in code:
+			self.assertIsInstance(item, str, "Your value is not a string.") 
 
 
 
