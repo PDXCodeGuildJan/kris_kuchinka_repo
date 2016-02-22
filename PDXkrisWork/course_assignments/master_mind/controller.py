@@ -64,7 +64,9 @@ class MasterMind():
 		"""
 		Gives player option to view the rules of the game.
 		"""
-		pass
+		# create variable for rules
+		# offer user opportunity to be given the rules
+
 		# if string.upper() == "RULES":
 		# 	GameData.rules
 
@@ -73,7 +75,16 @@ class MasterMind():
 		Method that searches whether each color in the player guess matches 
 		any color in the Secret Code.
 		"""
-		pass
+		
+		chosen_colors = ["Black", "White", "Blue", "Yellow"]
+		
+
+		# Take in the players round choice and compare to the master mind secret
+
+		# What can go wrong?>>>
+			# It could not match colors correctly
+			# It could not loop through every color
+			# It could 
 
 	def position_search(self):
 		"""

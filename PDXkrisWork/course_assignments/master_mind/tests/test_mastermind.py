@@ -10,7 +10,7 @@ class ControllerTest(unittest.TestCase):
 
 	def setUp(self):
 		"""
-		Create an instance of the MasterMind class so we can leverage its function in our tests.\
+		Create an instance of the MasterMind class so we can leverage its function in our tests.	
 		"""
 		self.mastermind = MasterMind()
 
@@ -20,6 +20,7 @@ class ControllerTest(unittest.TestCase):
 		"""
 		del self.mastermind
 
+#---------------> create_secret_code testing <------------
 
 	def test_create_secret_code_is_list(self):
 		"""
@@ -75,8 +76,28 @@ class ControllerTest(unittest.TestCase):
 		code2 = self.mastermind.create_secret_code()
 
 		self.assertNotEqual(code, code2, "The two resulting codes are equivalent")
+#---------------> end of create_secret_code testing <------------
+
+#---------------> begin color search testing <--------------------
+
+	def test_color_search_entry_is_list(self):
+		"""
+		Test to ensure that color_search input is in the form of a list.
+		"""
+
+		# Saving variable, running function
+		self.mastermind.chosen_colors = self.mastermind.color_search()
+		
+		# Test to make sure that the provided data is a list
+		self.assertIsInstance(chosen_colors, list, "Your value is not a list.")
 
 
+
+
+
+
+
+#---------------> end of begin color search testing <--------------------
 
 
 
