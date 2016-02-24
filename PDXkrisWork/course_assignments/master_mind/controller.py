@@ -77,6 +77,7 @@ class MasterMind():
 		"""
 		
 		chosen_colors = ["Black", "White", "Blue", "Yellow"]
+		return chosen_colors
 
 		# chosen_colors = self.view.get_guess()
 		
@@ -108,12 +109,30 @@ class MasterMind():
 		"""
 		Method that determines if player has won.
 		"""
+
+		# while current round <= 10
+		while self.model.current_round <= 10:
+			if self.model.player_guess == secret_code:
+				return True
+			else:
+				return False
+			
+
+		# if player_guess == secret code
+			# display secret code
+			# print congrats to user
+#+++++++POSSIBLE OPTION----> offer option to play again
 		pass
 
 	def lose():
 		"""
 		Method that determines if player has lost.
 		"""
+		if self.model.current_round > 10 and self.model.player_guess != secret_code:
+			return True
+
+
+#+++++++POSSIBLE OPTION----> offer option to play again		
 		pass
 
 	def advance_round():
