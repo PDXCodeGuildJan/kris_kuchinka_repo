@@ -45,7 +45,6 @@ function addStock() {
 	// console.log("This should be all the nodes:", selection);
 	// create a variable named check to hold a list of the checked items
 	checked = [];
-	// loop through list of selections until they have all been examined
 	for (temp = 0; temp<selection.length; temp++) {
 		// inside the loop, if it is checked, set value to true
 		if (selection[temp].checked == true) {
