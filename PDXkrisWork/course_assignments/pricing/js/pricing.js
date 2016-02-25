@@ -30,7 +30,7 @@ function addItem() {
 	}	
 	
 	var inventory = document.getElementById("inventory");
-	var newRow = "<tr> <td><input type=\"checkbox\" class=\"selector\" /></td> <td>" + materialName + "</td> <td>" + price + "</td> <td class=" + inStock + ">" + inStockConfirm + "</td> </tr>";
+	var newRow = "<tr> <td><input type=\"checkbox\" class=\"selector\" /></td> <td>" + materialName + "</td> <td>" + price + "</td> <td class=" + inStock + ">" + inStockConfirm + "</td></tr>";
 
 	inventory.innerHTML += newRow;
 } // end of function thing
@@ -42,7 +42,7 @@ function addStock() {
 
 	var selection = document.getElementsByClassName("selector");
 	// test that selection has a handle on all nodes with class "selector"
-	console.log("This should be all the nodes:", selection);
+	// console.log("This should be all the nodes:", selection);
 	// create a variable named check to hold a list of the checked items
 	checked = [];
 	// loop through list of selections until they have all been examined
@@ -54,24 +54,30 @@ function addStock() {
 			checked.push(selection[temp]);
 		} // end of if
 	} // end of for loop
-
 	// print to console the list of checked items
-	console.log(checked);
+	// console.log(checked);
+
+	for (var temp = 0; temp < checked.length; temp++) {
+		var status = checked[temp].parentNode.parentNode.lastChild;
+		console.log(status);
+		status.textContent = "Yes"; 
+		status.className = "true";
+		checked_choice = checked[temp];
+		checked_choice.checked = false;
+	}
 } // end of function addStock
 
+
 function removeStock() {
-	// USE querySelectorAll
+	// Tiffany Mandate ---> use 'querySelectorAll'
 	var selected = document.querySelectorAll("td>input.selector[type=checkbox]:checked");
 	console.log("This is supposed to print checked boxes-->", selected)
 
-	// checked_boxes = []
-
-	// for (temp=0; temp<selected.length; temp++) {
-
-	// 	if (selected[temp].checked == true) {
-	// 		checked_boxes.push(selected[temp]);
-	// 	}
-	// }
-
-	// console.log(checked_boxes)
+	for (var temp = 0; temp < selected.length; temp++) {
+		var status = selected[temp].parentNode.parentNode.children[3];
+		status.textContent = "No";
+		status.className = "false";
+		checked_choice = selected[temp];
+		checked_choice.checked = false;
+	}
 }
