@@ -18,6 +18,9 @@ class PlayerPeg():
 	"""
 	def __init__(self, color):
 		self.color = color
+	
+
+		# whatif the given color doesn't match the list of possible color choices? ------> Is what we did in view enough?
 
 class ConfPeg():
 	"""
@@ -67,3 +70,5 @@ class Guess():
 	def __init__(self):
 		self.player_guess = []
 		self.mm_eval = []
+		self.position = 0
+
