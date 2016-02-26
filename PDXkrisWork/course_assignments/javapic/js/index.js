@@ -5,16 +5,22 @@ function start() {
 function changeImage() {
 	var changing_image = document.getElementById("jumbotron");
 	console.log(changing_image);
-
-	changing_image.style.backgroundImage = "url('images/pdxcg_" + image_number + ".jpg')";
 	
 	if (image_number <= 9) {
-		changing_image = "url('images/pdxcg_0" + image_number + ".jpg')";
-	} else {
-		changing_image = "url('images/pdxcg_" + image_number + ".jpg'";
+		changing_image.style.backgroundImage = "url('images/pdxcg_0" + image_number + ".jpg')";
+		image_number += 1; 
+		console.log("You are <= 9");
+	} else if (image_number >= 10 && image_number <= 60) {
+		console.log("You are now >= 10");
+		changing_image.style.backgroundImage = "url('images/pdxcg_" + image_number + ".jpg')";
+		image_number += 1;
+	} else if (image_number >= 61) {
+		// console.log("You are greater than pic 60.");
+		image_number = 1;
+		// changing_image.style.backgroundImage = "url('images/pdxcg_0" + image_number + ".jpg')";
 	};
 	
-	image_number += 1;
+	
 
 } // end of changeImage function
 start();
