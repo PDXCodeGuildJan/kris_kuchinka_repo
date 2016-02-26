@@ -70,5 +70,5 @@ class Guess():
 	def __init__(self):
 		self.player_guess = []
 		self.mm_eval = []
-		self.position = 0
+		self.position = 0 # do we need position here?
 

@@ -69,13 +69,20 @@ class MasterMind():
 
 		# if string.upper() == "RULES":
 		# 	GameData.rules
+		pass
 
 	def color_search(self):
 		"""
 		Method that searches whether each color in the player guess matches 
 		any color in the Secret Code.
 		"""
-		
+		# We definitely have had a lot of trouble with this function,
+		# to the point where we decided to stop and come back to it.
+		# We feel like the TDD helps us, but we were only able to utilize
+		# it with Patrick's help and guidance. We don't seem to have a strong
+		# enough grasp of it on our own. Also, the MVC concept throws us off
+		# at times. The general concept is understood overall, but actually
+		# implementing it gets a little confusing sometimes.
 		chosen_colors = ["Black", "White", "Blue", "Yellow"]
 		return chosen_colors
 

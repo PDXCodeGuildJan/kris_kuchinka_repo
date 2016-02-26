@@ -1,5 +1,3 @@
-# Whatever is put in this file, GIT will ignore...
-
 __pychache__/
 *.pyc
 .DS_Store/
