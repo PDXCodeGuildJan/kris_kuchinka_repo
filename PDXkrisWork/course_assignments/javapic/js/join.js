@@ -21,43 +21,63 @@ function disableBrowserValidation() {
 
 // create a function to keep form from submitting
 function stopSubmit() {
-	// Select the form by ID and add "listener" for the submit event
-	// In the addEventListener function, feed it the variable submit to be listened for and an anonymous function
-	document.getElementById("signup").addEventListener("submit", function(event) {
-		// Pass the event from anonymous function and attach it to preventDefault function
-		event.preventDefault()
+	if (checkName() == true && checkUserName() == true && checkEmail() == true) {
+	
+		
+		
+		
+	} else {
 		// Verify in the console that the submission didn't work
 		console.log("Submission suppressed.");
-	});
-}
+	} // End of if all are true		
+} // End of stopSubmit
 
 function checkName() {
 	var name = document.forms["signup"]["name"].value;
 	if (name == null || name == "") {
-		stopSubmit();
 		alert("You forgot your name!");
 		return false;
-	};
+	}
+	
+	return true;
+	
 }
 
 function checkUserName() {
 	var user_name = document.forms["signup"]["username"].value;
 	if (user_name == null || user_name == "") {
 		alert("You didn't enter a username...");
-		stopSubmit();
+		// stopSubmit();
 		return false;
+	} else {
+		return true;
 	}
 }
 
 function checkEmail() {
 	var email = document.forms["signup"]["email"].value;
+	console.log(email);
 	if (email == null || email == "") {
 		alert("You didn't enter an email address");
-		stopSubmit();
+
 		return false;
-	} else if (email != null && email =="") {
-		alert("Hell yeah, you entered an email address!");
+	// } else if (email != null && email != "") {
+		// alert("Hell yeah, you entered an email address!");
+		// getEmail = document.getElementById("email");
+		// atSymbol = getEmail.indexOf("@");
+		// dotNotation = 
+	} else {
+		return true;
 	}
+}
+
+document.getElementById("submit").onclick = verifyAll;
+
+function verifyAll() {
+	stopSubmit();
+	// checkName();
+	// checkUserName();
+	// checkEmail();
 }
 
 
@@ -68,6 +88,3 @@ function checkEmail() {
 
 externalJs();
 disableBrowserValidation();
-checkName();
-checkUserName();
-checkEmail()
