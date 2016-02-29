@@ -20,10 +20,10 @@ function disableBrowserValidation() {
 }
 
 // create a function to keep form from submitting
-function stopSubmit() {
+function stopSubmit(event) {
 	if (checkName() == true && checkUserName() == true && checkEmail() == true) {
-	
-		
+		event.preventDefault();
+		window.location="gallery.html";
 		
 		
 	} else {
@@ -71,10 +71,10 @@ function checkEmail() {
 	}
 }
 
-document.getElementById("submit").onclick = verifyAll;
+document.getElementById("submit").addEventListener("click", verifyAll);
 
-function verifyAll() {
-	stopSubmit();
+function verifyAll(event) {
+	stopSubmit(event);
 	// checkName();
 	// checkUserName();
 	// checkEmail();
