@@ -20,12 +20,10 @@ function disableBrowserValidation() {
 }
 
 // create a function to keep form from submitting
-function stopSubmit(event) {
+function acceptInfo(event) {
+	event.preventDefault();
 	if (checkName() == true && checkUserName() == true && checkEmail() == true) {
-		event.preventDefault();
-		window.location="gallery.html";
-		
-		
+		window.location="gallery.html";		
 	} else {
 		// Verify in the console that the submission didn't work
 		console.log("Submission suppressed.");
@@ -47,39 +45,34 @@ function checkUserName() {
 	var user_name = document.forms["signup"]["username"].value;
 	if (user_name == null || user_name == "") {
 		alert("You didn't enter a username...");
-		// stopSubmit();
 		return false;
-	} else {
-		return true;
-	}
+	} 
+	return true;	
 }
 
 function checkEmail() {
+	// Create variable for email by pulling value
 	var email = document.forms["signup"]["email"].value;
-	console.log(email);
-	if (email == null || email == "") {
-		alert("You didn't enter an email address");
-
-		return false;
-	// } else if (email != null && email != "") {
-		// alert("Hell yeah, you entered an email address!");
-		// getEmail = document.getElementById("email");
-		// atSymbol = getEmail.indexOf("@");
-		// dotNotation = 
-	} else {
+	// Use RegExp that looks for no spaces, 1 @, proper period placement
+	if ( /^[^\s@]+@[^\s\.@]+\.[^\s\.@]+$/.test(email)) {
 		return true;
-	}
-}
+	} else {
+		alert("You have entered an invalid email address.")
+		return false;
+	} // end of regex if 
+} // End of checkEmail function
 
 document.getElementById("submit").addEventListener("click", verifyAll);
 
 function verifyAll(event) {
-	stopSubmit(event);
-	// checkName();
-	// checkUserName();
-	// checkEmail();
+	acceptInfo(event);
 }
 
+function stupidTestFunction() {
+	string = "kriskuchinka@gmail.com"
+	given_email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(string);
+	return given_email;
+}
 
 
 
