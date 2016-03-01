@@ -9,6 +9,8 @@ addStockButton.onclick = addStock;
 var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 
+var products = [];
+
 /* Add the item in the text fields to the inventory
  * list, which is in the table body (id="inventory")
  */
@@ -33,6 +35,12 @@ function addItem() {
 	var newRow = "<tr> <td><input type=\"checkbox\" class=\"selector\" /></td> <td>" + materialName + "</td> <td>" + price + "</td> <td class=" + inStock + ">" + inStockConfirm + "</td></tr>";
 
 	inventory.innerHTML += newRow;
+
+
+	// Create a new instance of the Product     // object with the new item's info
+	var newProd = new Product(materialName, price, inStock);
+	console.log(newProd);
+	products.push(newProd);
 } // end of function thing
 
 
@@ -64,6 +72,8 @@ function addStock() {
 		checked_choice = checked[temp];
 		checked_choice.checked = false;
 	}
+
+
 } // end of function addStock
 
 
@@ -80,3 +90,14 @@ function removeStock() {
 		checked_choice.checked = false;
 	}
 }
+
+/* Constructor for the Product object */
+function Product(name, price, inStock) {
+	this.prodName = name;
+	this.price = price;
+	this.inStock = inStock;
+
+	this.setStock = function(stock) {
+		this.inStock = stock;
+	}
+} 
