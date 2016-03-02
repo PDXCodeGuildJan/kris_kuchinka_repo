@@ -28,6 +28,7 @@ var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 //##############################################################
 
+window.onload = loadData;
 // Initialize array with the variable products
 var products = [];
 
@@ -49,6 +50,7 @@ function addItem() {
 	products.push(newProd);
 	// Call function displayInventory
 	displayInventory();
+	saveData();
 } // end of function addItem
 
 
@@ -71,6 +73,7 @@ function deleteItem() {
 
 	// Rerender HTML list, using displayInventory
 	displayInventory();
+	saveData();
 }
 
 
@@ -137,6 +140,7 @@ function displayInventory() {
 
 		// Add the new row to the actual TBODY in the hmtl
 		inventory.appendChild(newRow);
+
 	};
 
 }
@@ -162,6 +166,8 @@ function addStock() {
 	var prodId = checked[temp].parentNode.parentNode.id;
 	products[prodId].instock = true;
 	}
+
+	saveData();
 } // end of function addStock
 
 
@@ -178,6 +184,8 @@ function removeStock() {
 	var prodId = selected[temp].parentNode.parentNode.id;
 	products[prodId].instock = false;
 	};
+
+	saveData();
 }
 
 /* Constructor for the Product object */
@@ -190,3 +198,37 @@ function Product(name, price, inStock) {
 		this.inStock = stock;
 	}
 } 
+
+/**
+* Saves current state of the products list array.
+**/
+function saveData() {
+	// Transform the products array into a JSON string
+	var productJSON = JSON.stringify(products);
+
+	// Save the JSON string to local storage
+	localStorage.setItem("price_list", productJSON);
+}
+
+/**
+* Loads the current state of the products array
+**/
+function loadData() {
+	var productJSON = localStorage.getItem("price_list");
+	console.log("Loaded data", productJSON);
+
+	// Parse it into a Javascript data type and
+	// save the global array
+	products = JSON.parse(productJSON);
+	console.log(products);
+
+	// Double check that products is set a list if null
+	if (!products) {
+		products = [];
+	}
+
+	//Update the rendered display
+	displayInventory();
+}
+
+
