@@ -12,7 +12,6 @@ addStockButton.onclick = addStock;
 var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 
-
 window.onload = loadData;
 // Initialize array with the variable products
 
