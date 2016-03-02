@@ -12,6 +12,10 @@ addStockButton.onclick = addStock;
 var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 
+
+window.onload = loadData;
+// Initialize array with the variable products
+
 var products = [];
 
 /* Add the item in the text fields to the inventory
