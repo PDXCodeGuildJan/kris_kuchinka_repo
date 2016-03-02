@@ -31,6 +31,11 @@ function displayImages() {
 	gallery.appendChild(unorderedElement);
 } // end of displayImages function
 
+function makeLightBox {
+	// Be able to click on an image
+	// Change the display class to display_img
+	// Change class back to display_none when outside of img is clicked
+}
 
 externalJs();
 
