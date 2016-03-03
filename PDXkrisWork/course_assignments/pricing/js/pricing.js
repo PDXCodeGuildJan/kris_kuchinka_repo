@@ -230,7 +230,7 @@ function loadDataWithAJAX() {
 			// responseText holds the data we get back from the server
 			var prodJSON = request.responseText;
 			products = JSON.parse(prodJSON);
-			// displayInventory();
+			displayInventory();
 		}
 	}
 
