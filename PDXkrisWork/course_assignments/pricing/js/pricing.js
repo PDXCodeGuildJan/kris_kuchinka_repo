@@ -206,6 +206,8 @@ function saveData() {
 	// Transform the products array into a JSON string
 	var productJSON = JSON.stringify(products);
 
+	console.log(productJSON);
+	
 	// Save the JSON string to local storage
 	localStorage.setItem("price_list", productJSON);
 }
@@ -214,8 +216,8 @@ function saveData() {
 * Loads the current state of the products array
 **/
 function loadData() {
-	var productJSON = localStorage.getItem("price_list");
-	console.log("Loaded data", productJSON);
+	// var productJSON = localStorage.getItem("price_list");
+	// console.log("Loaded data", productJSON);
 
 	// Parse it into a Javascript data type and
 	// save the global array
