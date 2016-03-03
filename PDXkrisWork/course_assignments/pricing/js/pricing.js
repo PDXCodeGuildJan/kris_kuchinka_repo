@@ -228,7 +228,9 @@ function loadDataWithAJAX() {
 		// Make sure that everything is good
 		if (request.status === 200) {
 			// responseText holds the data we get back from the server
-			console.log(request.responseText);
+			var prodJSON = request.responseText;
+			products = JSON.parse(prodJSON);
+			displayInventory();
 		}
 	}
 
