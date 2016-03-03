@@ -27,7 +27,7 @@ function addItem() {
 	// Set variable "price" to value of anything with id 'price'
 	var price = document.getElementById("price").value;
 	// Set variable inStock to anything with id 'in-stock' that is checked
-	var inStock = document.getElementById("in-stock").checked
+	var inStock = document.getElementById("in-stock").checked;
 	// Create a new instance of the Product     // object with the new item's info
 	var newProd = new Product(materialName, price, inStock);
 
@@ -39,7 +39,7 @@ function addItem() {
 } // end of function addItem
 
 
-} // end of function thing
+//}  end of function thing
 
 /*
 * Delete the selected rows from the inventory
@@ -215,4 +215,10 @@ function loadData() {
 	displayInventory();
 }
 
+/*
+* Load the data from the json file on the server with AJAX
+*/
+function loadDataWithAJAX() {
+	
+}
 

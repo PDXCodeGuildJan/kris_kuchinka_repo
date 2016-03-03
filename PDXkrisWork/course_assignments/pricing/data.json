@@ -1,0 +1,22 @@
+[
+  {
+    "prodName": "Hedgehog",
+    "price": "2000",
+    "inStock": true
+  },
+  {
+    "prodName": "Squirrel",
+    "price": "100",
+    "inStock": false
+  },
+  {
+    "prodName": "Corgi",
+    "price": "1000000",
+    "inStock": true
+  },
+  {
+    "prodName": "Blue Jay",
+    "price": "1",
+    "inStock": false
+  }
+]
