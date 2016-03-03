@@ -33,26 +33,33 @@ function displayImages() {
 } // end of displayImages function
 
 function makeLightBox(event) {
-	var element = event.target;
-	if (element.tagName == "IMG") {
-		console.log("You clicked an image, BIATCH!");
-		console.log(element.src);
-	}
-	// Be able to click on an image
+ 	// Create element variable to select div id image_show
+	var element = document.getElementById("image_show");
+	// If target of the click event is an image
+	if (event.target.nodeName == "IMG") {
+		// Change the image class name to display_img
+		// This will enlarge the image
+		element.className = "display_img";
+		// Make the source of the item that is targeted (clicked)
+		// the source destination for the first child (which is 
+		// an image) of the div named image_show
+		// This will allow the actual picture that is clicked on to be shown
+		element.firstChild.src = event.target.src
+	} // End of if target == IMG
 
-	// Change the display class to display_img
-	// Change class back to display_none when outside of img is clicked
-}
+	// If something that is not an image is clicked
+	if (event.target.nodeName != "IMG") {
+		// Change the class name of the enlarged, selected 
+		// picture to display none, which will put it back
+		// to the small size inside the gallery
+		element.className = "display_none";
+	} // End of if target is NOT IMG
+} // End of makeLightBox function
 
-// Create a click event that calls makeLightBox
-var imageClick = document.getElementById("gallery");
-imageClick.addEventListener("click", makeLightBox);
-console.log(imageClick);
+// Create a click event that triggers the makeLightBox function
+document.addEventListener("click", makeLightBox);
 
 
-
-// var addItemButton = document.getElementById("add-item");
-// addItemButton.onclick = addItem;
 
 externalJs();
 
