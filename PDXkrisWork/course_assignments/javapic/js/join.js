@@ -1,5 +1,5 @@
 /* 
-Created By: Kris Kuchinka
+* Created By: Kris Kuchinka
 * Start Date: 2016.02.26
 * Submission Date:
 * Document Purpose: This is an external JavaScript file  

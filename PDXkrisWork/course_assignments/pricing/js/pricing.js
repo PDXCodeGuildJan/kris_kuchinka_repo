@@ -1,50 +1,65 @@
-// Establish even listener for when they click an item
+/* 
+Created By: Kris Kuchinka
+* Start Date: 2016.02.28(ish)
+* Submission Date:
+* Document Purpose: This is a JavaScript assignment that was assigned 
+* at PDX Code Guild. We were given HTML and CSS to interact with, under
+* the mandate that we can't alter the given HTML and CSS.
+*/
+
+//----------- Event Listeners ----------------------------------->
+//################################################################
+// Establish event listener for when user clicks an item
 // Add the click event handler to the "add-item"
 var addItemButton = document.getElementById("add-item");
+// After clicking addItem, trigger addItem function
 addItemButton.onclick = addItem;
 // Add the click event handler to the "delete-item"
 var deleteItemButton = document.getElementById("del-item");
+// After clicking deleteItem, trigger deleteItem function
 deleteItemButton.onclick = deleteItem;
 // Add the click event handler to the "add-stock"
 var addStockButton = document.getElementById("add-stock");
+// After clicking addStock, trigger addStock function
 addStockButton.onclick = addStock;
 // Add the click even handler to the "remove-stock" button
 var removeStockButton = document.getElementById("remove-stock");
+// After clicking removeStock, trigger removeStock function
 removeStockButton.onclick = removeStock;
+//##############################################################
 
 window.onload = loadData;
 // Initialize array with the variable products
 
 var products = [];
 
-/* Add the item in the text fields to the inventory
- * list, which is in the table body (id="inventory")
- */
+/* 
+* Add the item in the text fields to the inventory list, which
+* is in the table body (id="inventory")
+*/
 function addItem() {
-	// Set variable "materialName" to value of anything with id 'name'
+	// Variable "materialName" is what user inputs in name field
 	var materialName = document.getElementById("name").value;
-	// Set variable "price" to value of anything with id 'price'
+	// Variable "price" is what user inputs in price field
 	var price = document.getElementById("price").value;
-	// Set variable inStock to anything with id 'in-stock' that is checked
+	// Variable "inStock" is true or false based on checked status
 	var inStock = document.getElementById("in-stock").checked
-	// Create a new instance of the Product     // object with the new item's info
+	// Create a new instance of the Product object with the 
+	// new item's info
 	var newProd = new Product(materialName, price, inStock);
-
+	// Put the value of newProd into the products array
 	products.push(newProd);
-
+	// Call function displayInventory
 	displayInventory();
-
 	saveData();
 } // end of function addItem
-
-
-} // end of function thing
 
 /*
 * Delete the selected rows from the inventory
 */
 function deleteItem() {
-	// First, determine all the selected rows
+	// First, determine all the selected rows with helper function
+	// getSelectedRowBoxes
 	var selected = getSelectedRowBoxes();
 	// Delete the Product objects that correspond to those 
 	// rows from the Products array
@@ -60,6 +75,8 @@ function deleteItem() {
 	displayInventory();
 	saveData();
 }
+
+
 /*
 * Helper function to get all the checked boxes in the HTML
 * inventory.
@@ -197,8 +214,10 @@ function saveData() {
 * Loads the current state of the products array
 **/
 function loadData() {
+
 	var productJSON = localStorage.getItem("price_list");
 	console.log("Loaded data", productJSON);
+
 
 	// Parse it into a Javascript data type and
 	// save the global array
