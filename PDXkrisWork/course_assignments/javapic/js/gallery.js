@@ -13,6 +13,7 @@ function displayImages() {
 		var listElement = document.createElement("LI");
 		// Create img item element
 		var imageElement = document.createElement("IMG");
+		imageElement.className = "image";
 		if (pic < 10) {
 			// Give the image taga a source and insert current pic number to loop through
 			imageElement.src = "images/pdxcg_0" + pic + ".jpg";
@@ -31,11 +32,27 @@ function displayImages() {
 	gallery.appendChild(unorderedElement);
 } // end of displayImages function
 
-function makeLightBox {
+function makeLightBox(event) {
+	var element = event.target;
+	if (element.tagName == "IMG") {
+		console.log("You clicked an image, BIATCH!");
+		console.log(element.src);
+	}
 	// Be able to click on an image
+
 	// Change the display class to display_img
 	// Change class back to display_none when outside of img is clicked
 }
+
+// Create a click event that calls makeLightBox
+var imageClick = document.getElementById("gallery");
+imageClick.addEventListener("click", makeLightBox);
+console.log(imageClick);
+
+
+
+// var addItemButton = document.getElementById("add-item");
+// addItemButton.onclick = addItem;
 
 externalJs();
 
