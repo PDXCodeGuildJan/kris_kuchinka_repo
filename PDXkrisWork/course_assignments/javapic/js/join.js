@@ -19,11 +19,15 @@ function disableBrowserValidation() {
 	document.getElementById("signup").noValidate = true;
 }
 
+
+
 // create a function to keep form from submitting
 function acceptInfo(event) {
+
+	var name = document.forms["signup"]["name"].value;
 	event.preventDefault();
 	if (checkName() == true && checkUserName() == true && checkEmail() == true) {
-		window.location="gallery.html";		
+		window.location = "gallery.html?" + name;		
 	} else {
 		// Verify in the console that the submission didn't work
 		console.log("Submission suppressed.");

@@ -2,6 +2,17 @@ function externalJs() {
 	console.log("Your external JS is connected properly.");
 } // End of start funtion
 
+function getNameFromUrl() {
+	var name = window.location.search.substr(1).replace(/%20/g, " ");
+	console.log(name);
+	if (name) {
+		document.getElementsByClassName("tagline")[0].innerHTML = "Let's develop something beautiful, " + name +"!";
+	}
+	
+}
+
+
+
 function displayImages() {
 	// Grab gallery section
 	var gallery = document.getElementById("gallery");
@@ -62,5 +73,5 @@ document.addEventListener("click", makeLightBox);
 
 
 externalJs();
-
+getNameFromUrl();
 displayImages();
