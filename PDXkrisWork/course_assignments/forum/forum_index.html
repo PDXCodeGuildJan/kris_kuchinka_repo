@@ -3,7 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forum</title>
+	<!-- Link to Google Fonts for typography -->
+	<link href='https://fonts.googleapis.com/css?family=Overlock:900italic,700,900' rel='stylesheet' type='text/css'>
+	<!-- Link to external CSS -->
 	<link rel="stylesheet" href="css/forum_styles.css">
+	<!-- Link to Google jQuery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 	<form id="sw-form"  method="post" action="#">
@@ -11,6 +16,10 @@
 		<textarea class="forum-input" name="comment" id="comment" cols="30" rows="10" placeholder="Comments. Ideas. Submissions."></textarea>
 		<input id="submit-form" type="submit" value="Star Wars-- What do you think?"/>
 	</form>
+	<!-- Create a div to hold returned posts -->
+	<!-- !!!!This is not yet functioning!!!! -->
+	<div class="returned-posts"></div>
+
 	<script src="forum_js.js"></script>
 </body>
 </html>
