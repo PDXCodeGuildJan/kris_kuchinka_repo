@@ -1,3 +1,11 @@
+<!-- 
+Created By: Kris Kuchinka
+Conception Date: 2016.03.05
+Last Modified: 2016.03.07
+
+Purpose: This is the final JavaScript/AJAX assignment at PDX Code Guild. The instructions for it are in the readme.md file in the forum folder. 
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +19,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
+	<div id="successful-post"></div>
 	<form id="sw-form"  method="post" action="#">
 		<input class="forum-input" type="text" name="subject" id="subject" placeholder="Post Title">
 		<textarea class="forum-input" name="comment" id="comment" cols="30" rows="10" placeholder="Comments. Ideas. Submissions."></textarea>
@@ -20,6 +29,6 @@
 	<!-- !!!!This is not yet functioning!!!! -->
 	<div class="returned-posts"></div>
 
-	<script src="forum_js.js"></script>
+	<script src="js/forum_js.js"></script>
 </body>
 </html>
