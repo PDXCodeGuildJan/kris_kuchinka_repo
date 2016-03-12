@@ -12,7 +12,7 @@ This single page website will be created completely from scratch. You will creat
 ### POST
 - URL: https://docs.google.com/forms/d/1W1jO8DwInFuzlabeYqEp6hUUUqDbR8gESs1Pk6qozOc/formResponse
 - dataType: 'xml'
-- additional data you need to send: {"entry_1358166143": title, "entry_1289920291": bodytext}
+- additional data you need to send: {"entry_1639809944": title, "entry_1402022725": bodytext}
 
 ### Inspiration
 - The web page's design must be inspired by the below illustration (get creative).
