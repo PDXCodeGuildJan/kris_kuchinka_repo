@@ -5,7 +5,8 @@
 {% block main_content %}
 	<h1>{{question.question_text}}<h1> 
 
-	<form id="question_vote">
+	<form id="question_vote"> 
+		{% csrf_token %}
 		{% for choice in question.choice_set.all %}
 			<input type="radio" name="question_choice" value="{{ choice.id }}" />
 			{{ choice.choice_text }}

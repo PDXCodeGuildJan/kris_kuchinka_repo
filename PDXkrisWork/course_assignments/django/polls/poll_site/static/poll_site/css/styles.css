@@ -8,4 +8,17 @@ body {
 	width: 100%;
 	margin: 0;
 	padding: 20px;
+	background-color: #ECFFF8; /*off white*/
+}
+
+.heading_title {
+	color: #6532FF; /*purple*/
+}
+
+.center {
+	text-align: center;
+}
+
+a {
+	color: #88D3E8; /*light blue*/
 }
