@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 from .models import Question, Choice
 
 # Create your views here.
-def hello_world_render(request):
+def index(request):
 	questions = Question.objects.all()
 	context = {
 		'questions': questions,
@@ -21,7 +21,8 @@ def hello_world_render(request):
 	return render(request, 'poll_site/index.html', context)
 
 def another_page(request):
-	return render(request, 'poll_site/another.html')
+	return render(request, 'poll_site/another.html', context)
+
 
 def question_details(request, question_id):
 
