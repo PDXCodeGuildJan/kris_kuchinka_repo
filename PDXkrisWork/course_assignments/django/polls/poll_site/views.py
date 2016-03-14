@@ -66,17 +66,18 @@ def submit_vote(request):
 		question_choices = question.choice_set.all()
 		
 		# Loop through the choices and add them to a dictionary
-		response = {}
+		response = []
 		for choice in question_choices:
 			c_dict = {
-				'text':choice.choice_text,
-				'votes':choice.votes
+				'id': choice.id,
+				'text': choice.choice_text,
+				'votes': choice.votes
 			}
-			response[str(choice.id)] = c_dict
+			response.append(c_dict)
 
 	
-	# takes python dictionary and turns into JSON string
-	return JsonResponse(response)
+	# takes python dictionary and turns into a list of JSON data
+	return JsonResponse({'data': response})
 
 
 

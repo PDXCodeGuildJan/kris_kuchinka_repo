@@ -37,6 +37,38 @@ function votingSubmission(event) {
 
 }
 
-function votingSuccess(data) {
-	console.log("Congratulations! You rocked the vote.");
+function votingSuccess(response) {
+	if(response.target.status === 200) {
+		// Get the data from the response
+		var data_json = response.target.response;
+		// Translate the data from json
+		var data = JSON.parse(data_json);
+		console.log(data); 
+		//Post the voting results!!
+		postResults(data.data)
+	}
+}
+
+function postResults(data) {
+	// Get the div and clear out the form
+	var divThing = document.getElementById("questions");
+	divThing.innerHTML = "";
+
+	// Rebuild the form with voting results
+	var h3 = document.createElement('H3');
+	h3.textContent = "Current Results!";
+
+	var list = document.createElement('UL');
+	list.id = 'results';
+
+	// Loop through the returned results and display them
+	for (var i = 0; i < data.length; i++) {
+		var choice = "'" + data[i].text + "' has " + data[i].votes + " votes"; 
+		var item = document.createElement('LI');
+		item.textContent = choice;
+		list.appendChild(item);
+	};
+
+	divThing.appendChild(h3);
+	divThing.appendChild(list);
 }
