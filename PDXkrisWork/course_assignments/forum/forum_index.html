@@ -1,9 +1,8 @@
 <!-- 
 Created By: Kris Kuchinka
-Conception Date: 2016.03.05
-Last Modified: 2016.03.07
-
-Purpose: This is the final JavaScript/AJAX assignment at PDX Code Guild. The instructions for it are in the readme.md file in the forum folder. 
+Submission Date: 2016.03.14
+Project Name: Forum
+Explanation: This was a project assigned to me at PDX Code Guild by the instructor. It is supposed to be a single page forum that uses AJAX to automatically sync up with the Google spreadsheet it is attached to. (Refer to README.md for assignment particulars.)The style theme was supposed to be modeled after a Star Wars promotional picture.
  -->
 
 <!DOCTYPE html>
@@ -19,16 +18,19 @@ Purpose: This is the final JavaScript/AJAX assignment at PDX Code Guild. The ins
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
+	<!-- Div to hold successful post message -->
 	<div id="successful-post"></div>
+	<!-- Simple form to take in a title and post for the forum -->
 	<form id="sw-form"  method="post" action="#">
 		<input class="forum-input" type="text" name="subject" id="subject" placeholder="Post Title">
 		<textarea class="forum-input" name="comment" id="comment" cols="30" rows="10" placeholder="Comments. Ideas. Submissions."></textarea>
 		<input id="submit-form" type="submit" value="Star Wars-- What do you think?"/>
 	</form>
-	<!-- Create a div to hold returned posts -->
-	<!-- !!!!This is not yet functioning!!!! -->
+
+	<!-- Div to hold returned posts -->
 	<div id="returned-posts"></div>
 
+	<!-- Insert source to JS to make site function properly -->
 	<script src="js/forum_js.js"></script>
 </body>
 </html>
