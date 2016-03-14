@@ -1,4 +1,21 @@
-<html>
-	{{<h1>question.question_text<h1>}}
-	{{<input type="radio"}}
-</html>
+{% extends 'poll_site/basic_template.html' %}
+
+{% load staticfiles %}
+
+{% block main_content %}
+	<h1>{{question.question_text}}<h1> 
+
+	<form id="question_vote">
+		{% for choice in question.choice_set.all %}
+			<input type="radio" name="question_choice" value="{{ choice.id }}" />
+			{{ choice.choice_text }}
+			<br/>
+		{% endfor %}
+		
+		<input type="hidden" id="question_id" value="{{ question.id }}" />
+		<input type="submit" />
+	</form>
+
+	<script src="{% static 'poll_site/js/voting.js' %}"></script>
+
+{% endblock %}

@@ -1,24 +1,28 @@
-Hello World, {{ name }}
+{% extends 'poll_site/basic_template.html' %}
 
-<h2>Favorite Toys</h2>
-<ul>
-	{% for item in toys %}
-		<li>{{ item }}</li>
-	{% endfor %}
-</ul>
+{% block main_content %}
+	Hello World, {{ name }}
 
-<div>
-	<h3>Questions!</h3>
+	<h2>Favorite Toys</h2>
 	<ul>
-		{% for q in questions %}
-			<li><a href="{% url 'question_details' q.id %}">{{ q.question_text }}</a></li>
-		<ul>
-			{% for choice in q.choice_set.all %}
-			<li>{{ choice.choice_text }}</li>
-			{% endfor %}
-		</ul>
+		{% for item in toys %}
+			<li>{{ item }}</li>
 		{% endfor %}
 	</ul>
-</div>
 
-<a href="{% url 'another' %}">Go to another page...</a>
+	<div>
+		<h3>Questions!</h3>
+		<ul>
+			{% for q in questions %}
+				<li><a href="{% url 'question_details' q.id %}">{{ q.question_text }}</a></li>
+			<ul>
+				{% for choice in q.choice_set.all %}
+				<li>{{ choice.choice_text }}</li>
+				{% endfor %}
+			</ul>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<a href="{% url 'another' %}">Go to another page...</a>
+{% endblock %}

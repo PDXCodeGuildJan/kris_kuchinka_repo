@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'poll_site/css/styles.css' %}">
+</head>
+<body>
+	<nav>
+		<a href="">Home</a> | <a href="">Link</a>
+	</nav>
+
+	<!-- Load Base Template and create variable name "main_content" -->
+	{% block main_content %}
+	{% endblock %}
+	
+</body>
+
+</html>
