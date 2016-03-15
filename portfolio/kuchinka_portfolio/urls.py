@@ -19,4 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #--!--> I'm a little unsure, but I think this is how you register a home url
+    url(r'^$', index.site.urls),
 ]
