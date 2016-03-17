@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'display_port',
+    'zen_garden',
 ]
 
 MIDDLEWARE_CLASSES = [

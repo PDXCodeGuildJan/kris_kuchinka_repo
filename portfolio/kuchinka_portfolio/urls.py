@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from display_port.views import index
+from display_port.views import index 
+from zen_garden.views import zen_garden
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
+    url(r'^zen_garden/', zenGarden),
 ]
